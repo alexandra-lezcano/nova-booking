@@ -45,3 +45,18 @@ $(function() {
         reader.readAsDataURL(image);
     });
 });
+
+$(document).on('click', '.remove_fields', function (e) {
+    //elimina el partial que tiene estos enlaces
+    $(this).closest('fieldset').detach();
+    e.preventDefault()
+});
+
+$(document).on('click', '.add_fields', function (e) {
+    //console.log("add fields link clicked")
+    let time = new Date().getTime()
+    let regexp = new RegExp($(this).data('id'), 'g')
+    //console.log()
+    $(this).before($(this).data('fields').replace(regexp, time))
+    e.preventDefault()
+});
