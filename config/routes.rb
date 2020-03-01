@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  resources :estates
+  resources :estates do
+    collection do
+      get :new_room
+    end
+  end
   resources :cities
   resources :departaments
   resources :owners

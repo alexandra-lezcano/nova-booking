@@ -58,12 +58,12 @@
   </div>
 
   <%= form.hidden_field :owner_id %>
-
+  <div class="content-heading">Habitaciones</div>
   <div class="card card-default">
-    <div class="card-header">
-      <h5><strong>Habitaciones</strong></h5>
-    </div>
     <div class="card-body">
+      <%= form.fields_for :rooms, @rooms do |f| %>
+        <%= render 'room_form', f: f %>
+      <% end %>
     </div>
   </div>
   <fieldset>
