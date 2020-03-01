@@ -1,4 +1,5 @@
 class EstatesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_estate, only: %i[show edit update destroy]
 
   # GET /estates
@@ -15,7 +16,7 @@ class EstatesController < ApplicationController
   # GET /estates/new
   def new
     @estate = Estate.new
-    @estate.owner_id = 1
+    @estate.owner_id = Owner.find_by(user_id: current_user.id).id
     @rooms = @estate.rooms.build
   end
 
