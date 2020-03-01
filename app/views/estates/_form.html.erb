@@ -18,7 +18,7 @@
         <div class="card-header">
           <h5><strong>Nombre y Ubicacion</strong></h5>
         </div>
-        <div class="card-body">
+        <div class="card-body height_div">
             <div class="form-group">
               <label>Nombre de la propiedad *</label>
               <%= form.text_field :name, class: "form-control", required: "required" %>
@@ -47,9 +47,16 @@
           <div class="form-group">
             <label>Agrega al menos una foto a tu propiedad</label>
           </div>
-          <div id="dropzone-area">
-            <%= form.file_field :images, multiple: true, class: "dropzone mb-3 card d-flex flex-row justify-content-center flex-wrap" %>
-            <div id="dropzone-previews"></div>
+          <div>
+            <%#= form.file_field :images, multiple: true, class: "dropzone mb-3 card d-flex flex-row justify-content-center flex-wrap" %>
+            <fieldset>
+              <div id = "" class="field">
+                <%= form.label "Upload_image/s" %>
+                <%= form.file_field :images, multiple: true, id: "pictureInput" %>
+              </div>
+              <div id="target" class="scroll_images card d-flex flex-row justify-content-center flex-wrap">
+              </div>
+            </fieldset>
           </div>
         </div>
       </div>

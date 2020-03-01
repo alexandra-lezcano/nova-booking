@@ -25,23 +25,27 @@ document.addEventListener('DOMContentLoaded', appInit);
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-// for image preview in_form.html.erb
+// for image preview for file fields
+// div where image will be added should have id="target"
 $(function() {
     const HEIGHT = 150;
     const WIDTH = 150;
     $('#pictureInput').on('change', function(event) {
         let files = event.target.files;
-        let image = files[0];
-        let reader = new FileReader();
-        reader.onload = function(file) {
-            let img = new Image();
-            img.src = file.target.result;
-            img.classList.add("img-thumbnail"); //alt="rss fit" height="150" width="150"
-            img.setAttribute('alt', 'rss fit');
-            img.setAttribute('height', HEIGHT);
-            img.setAttribute('width', WIDTH);
-            $('#target').append(img);
-        };
-        reader.readAsDataURL(image);
+
+        Array.from(files).forEach(file => {
+            let reader = new FileReader();
+            reader.onload = function (file) {
+                let img = new Image();
+                img.src = file.target.result;
+                img.classList.add("img-thumbnail");
+                img.setAttribute('alt', 'rss fit');
+                img.setAttribute('height', HEIGHT);
+                img.setAttribute('width', WIDTH);
+                $('#target').append(img);
+                $('img').css("display", "inline-block")
+            };
+            reader.readAsDataURL(file);
+        });
     });
 });
