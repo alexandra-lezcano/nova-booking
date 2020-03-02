@@ -1,6 +1,6 @@
 
 <section class="container">
-  <header>
+  <header class="main-section-header">
     <h1>
       Busca ofertas de hotel
     </h1>
@@ -9,41 +9,55 @@
     </h6>
   </header>
   <section class="row main-filter-section" style="height: 300px">
-    <div class="col-6" style="background-color: grey">
-      <div class="card card-body bg-white mx-auto" style="width: 50rem;">
+    <div class="col-md-6 col-sm-12 d-flex align-items-center main-filter">
+      <div class="col-12 filter-block">
         <%= puts @filterrific.inspect %>
         <%= form_for_filterrific @filterrific do |f| %>
-          <div class="form-group row">
-            <div class="col-3">
-              <label class="font-weight-bold">Destination</label>
-              <%= f.text_field :search_query,
+          <div class="form-group col-12">
+            <div class="row has-search d-flex align-items-center">
+              <span class="fas fa-globe form-control-feedback"></span>
+              <%= f.text_field :search_query, placeholder: "¿Qué ciudad búscas?" ,
                                :class => 'filterrific-periodically-observed form-control' %>
             </div>
 
-            <div class="col-3">
-              <div>
-                <label class="font-weight-bold">Check-in</label>
-              </div>
+            <div class="row has-search d-flex align-items-center">
+              <span class="fa fa-search form-control-feedback" ></span>
+              <input type="text" class="form-control" placeholder="Search" style="padding-left: 2.375rem;">
             </div>
 
-            <div class="col-3">
-              <div >
-                <label class="font-weight-bold">Check-out</label>
-              </div>
+            <div class="row has-search d-flex align-items-center">
+              <span class="fa fa-search form-control-feedback"></span>
+              <input type="text" class="form-control" placeholder="Search" style="padding-left: 2.375rem;">
             </div>
-
-            <div>
-              <div class="col-3">
-                <label class="font-weight-bold">People</label>
-              </div>
-            </div>
-
+            
           </div>
         <% end %>
       </div>
     </div>
-    <div class="col-6" style="background-color: #5d9cec">
-      <p>descripciones</p>
+
+    <div class="col-md-6 col-sm-12" style="background-color: #5d9cec">
+      <div class="row">
+        <ul class="col-12">
+          <li>
+            <em class="fa-2x mr-2 fas fa-check"></em>
+            <span>
+              <strong>Compara más de un millón de hoteles en todo el mundo</strong>
+            </span>
+          </li>
+          <li>
+            <em class="fa-2x mr-2 fas fa-check"></em>
+            <span>
+              <strong>Compara más de un millón de hoteles en todo el mundo</strong>
+            </span>
+          </li>
+          <li>
+            <em class="fa-2x mr-2 fas fa-check"></em>
+            <span>
+              <strong>Compara más de un millón de hoteles en todo el mundo</strong>
+            </span>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 </section>
@@ -54,3 +68,4 @@
           locals: {estates: @estates}
       ) %>
 </div>
+

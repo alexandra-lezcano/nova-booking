@@ -1,3 +1,41 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.main-section-header{
+  padding-left: 80px;
+}
+
+.main-filter-section .filter-block{
+  padding: 0px;
+}
+
+.main-filter-section .main-filter{
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.main-filter-section .has-search{
+  padding-bottom: 2px;
+  padding-top: 2px;
+}
+
+.main-filter-section .form-control{
+  padding-left: 2.375rem;
+  height: 70px;
+}
+
+.main-filter-section .form-control-feedback {
+  position: absolute;
+  z-index: 100;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+
+
