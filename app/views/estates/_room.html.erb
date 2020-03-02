@@ -1,5 +1,5 @@
 <fieldset style="margin: 0; border: 0; padding: 0;">
-  <div class="row">
+  <div class="row ocultar">
     <div class="col-md-6">
         <div class="card-body">
           <div class="form-group">
@@ -36,7 +36,13 @@
         </div>
       </div>
     </div>
-  </div>
 
+    <%= link_to "Eliminar" do%>
+      <div class=" remove_fields btn btn-link text-danger">
+        <i class="fas fa-trash-alt"></i>
+      </div>
+    <%end %>
+
+  </div>
 
 </fieldset>

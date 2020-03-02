@@ -53,6 +53,7 @@ $(document).on('click', '.remove_fields', function (e) {
 });
 
 $(document).on('click', '.add_fields', function (e) {
+    $('.ocultar').hide()
     //console.log("add fields link clicked")
     let time = new Date().getTime()
     let regexp = new RegExp($(this).data('id'), 'g')
