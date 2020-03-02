@@ -11,6 +11,40 @@
     </div>
   <% end %>
 
+  <div class="card card-default">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-xl-4">
+          <h5><strong>Selecciona el tipo de tu propiedad: </strong></h5>
+        </div>
+        <div class="col-xl-2">
+          <!-- START card-->
+            <label class="c-radio">
+              <input id="inlineradio10" type="radio" name="i-radio" value="option1" checked="checked" />
+              <span class="fa fa-building"></span>Un depertamento
+            </label>
+          <!-- END card-->
+        </div>
+        <div class="col-xl-2">
+          <!-- START card-->
+            <label class="c-radio">
+              <input id="inlineradio20" type="radio" name="i-radio" value="option2" checked="checked" />
+              <span class="fa fa-home"></span>Una casa
+            </label>
+          <!-- END card-->
+        </div>
+        <div class="col-xl-2">
+          <!-- START card-->
+            <label class="c-radio">
+              <input id="inlineradio30" type="radio" name="i-radio" value="option3" checked="checked" />
+              <span class="fa fa-hotel"></span>Hotel
+            </label>
+          <!-- END card-->
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-md-6">
       <!-- START card-->
@@ -58,6 +92,8 @@
   </div>
 
   <%= form.hidden_field :owner_id %>
+
+  <br/>
   <div class="content-heading">Habitaciones</div>
   <div class="card card-default">
     <div class="card-body">
