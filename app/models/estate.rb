@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 class Estate < ApplicationRecord
   belongs_to :city
   has_many_attached :images
@@ -59,4 +58,8 @@ class Estate < ApplicationRecord
         ['Name (Z-A)', 'name_desc']
     ]
   end
-  end
+
+  extend Enumerize
+  enumerize :estate_type, in: [:one_apartment, :homes, :hotel]
+
+end

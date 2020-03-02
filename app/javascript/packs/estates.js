@@ -7,25 +7,17 @@ import initSelect2 from './angle/modules/forms/select2';
 import initWizard from './angle/modules/forms/wizard';
 import initXEditable from './angle/modules/forms/xeditable';
 
-$(function() {
+$(function () {
 
     initImageCropper();
     initSelect2();
     initWizard();
     initXEditable();
 });
-// for image preview in_form.html.erb
+
 $(function() {
+
     $('#pictureInput').on('change', function(event) {
-        let files = event.target.files;
-        let image = files[0];
-        let reader = new FileReader();
-        reader.onload = function(file) {
-            let img = new Image();
-            img.src = file.target.result;
-            img.classList.add("img-thumbnail")
-            $('#target').append(img);
-        };
-        reader.readAsDataURL(image);
+        $('#target').empty();
     });
 });
