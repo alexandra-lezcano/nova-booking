@@ -104,11 +104,21 @@
   <div class="content-heading">Habitaciones</div>
   <div class="card card-default">
     <div class="card-body">
-      <%= form.fields_for :rooms, @rooms do |f| %>
-        <%= render 'room_form', f: f %>
-      <% end %>
+      <table id="roomsTable">
+
+      </table>
     </div>
   </div>
+  <div class="card card-default">
+    <div class="card-body">
+      <%= form.fields_for :rooms, @rooms do |f| %>
+        <%= render 'room', f: f %>
+      <% end %>
+      <p>Hola</p>
+      <%= link_to_add_fields "Agregar habitacion", form, :rooms %>
+    </div>
+  </div>
+
   <fieldset>
     <div class="form-group row">
       <div class="col-md-4">
@@ -117,4 +127,5 @@
       </div>
     </div>
   </fieldset>
+
 <% end %>
