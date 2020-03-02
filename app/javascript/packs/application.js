@@ -58,6 +58,10 @@ $(document).on('click', '.remove_fields', function (e) {
 
 $(document).on('click', '.add_fields', function (e) {
     $('.ocultar').hide()
+
+    let name =  $(this).parent("p").val()
+    console.log(name)
+    $ ( '#roomsTable' ). append ( "<tr> <td> 1 </td> <td>"+name+" </td> </tr>" );
     //console.log("add fields link clicked")
     let time = new Date().getTime()
     let regexp = new RegExp($(this).data('id'), 'g')

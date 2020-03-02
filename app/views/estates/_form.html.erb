@@ -114,6 +114,7 @@
       <%= form.fields_for :rooms, @rooms do |f| %>
         <%= render 'room', f: f %>
       <% end %>
+      <p>Hola</p>
       <%= link_to_add_fields "Agregar habitacion", form, :rooms %>
     </div>
   </div>
