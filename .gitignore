@@ -78,3 +78,6 @@ yarn-debug.log*
 config/database.yml
 db/schema.rb
 yarn.lock
+
+# manifest
+public/packs/manifest.json
