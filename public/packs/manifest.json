@@ -1,55 +1,75 @@
 {
-  "angle/app.js": "/packs/js/angle/app-c8d6ef16211d7f6828a3.chunk.js",
-  "angle/app.js.map": "/packs/js/angle/app-c8d6ef16211d7f6828a3.chunk.js.map",
+  "angle/app.js": "/packs/js/angle/app-6dc4a05eb0ea6544e802.chunk.js",
+  "angle/app.js.map": "/packs/js/angle/app-6dc4a05eb0ea6544e802.chunk.js.map",
   "angle/custom/custom.js": "/packs/js/angle/custom/custom-da39d03f0eadb1527e6e.chunk.js",
   "angle/custom/custom.js.map": "/packs/js/angle/custom/custom-da39d03f0eadb1527e6e.chunk.js.map",
   "angle/modules/common/bootstrap-start.js": "/packs/js/angle/modules/common/bootstrap-start-7dcb8ec075198884facc.chunk.js",
   "angle/modules/common/bootstrap-start.js.map": "/packs/js/angle/modules/common/bootstrap-start-7dcb8ec075198884facc.chunk.js.map",
-  "angle/modules/common/card-tools.js": "/packs/js/angle/modules/common/card-tools-c84b56f0b3bb738f84ae.chunk.js",
-  "angle/modules/common/card-tools.js.map": "/packs/js/angle/modules/common/card-tools-c84b56f0b3bb738f84ae.chunk.js.map",
+  "angle/modules/common/card-tools.js": "/packs/js/angle/modules/common/card-tools-5f795b4c7070e4f1a3a8.chunk.js",
+  "angle/modules/common/card-tools.js.map": "/packs/js/angle/modules/common/card-tools-5f795b4c7070e4f1a3a8.chunk.js.map",
   "angle/modules/common/constants.js": "/packs/js/angle/modules/common/constants-258789f14ae3ff36bf15.chunk.js",
   "angle/modules/common/constants.js.map": "/packs/js/angle/modules/common/constants-258789f14ae3ff36bf15.chunk.js.map",
   "angle/modules/common/fullscreen.js": "/packs/js/angle/modules/common/fullscreen-c6cd3458d2a4910b2d4d.chunk.js",
   "angle/modules/common/fullscreen.js.map": "/packs/js/angle/modules/common/fullscreen-c6cd3458d2a4910b2d4d.chunk.js.map",
   "angle/modules/common/load-css.js": "/packs/js/angle/modules/common/load-css-66bca904b9b94d0878ca.chunk.js",
   "angle/modules/common/load-css.js.map": "/packs/js/angle/modules/common/load-css-66bca904b9b94d0878ca.chunk.js.map",
-  "angle/modules/common/localize.js": "/packs/js/angle/modules/common/localize-8b62960f68c4b585af7a.chunk.js",
-  "angle/modules/common/localize.js.map": "/packs/js/angle/modules/common/localize-8b62960f68c4b585af7a.chunk.js.map",
+  "angle/modules/common/localize.js": "/packs/js/angle/modules/common/localize-1074bd69b2c365e2017f.chunk.js",
+  "angle/modules/common/localize.js.map": "/packs/js/angle/modules/common/localize-1074bd69b2c365e2017f.chunk.js.map",
   "angle/modules/common/navbar-search.js": "/packs/js/angle/modules/common/navbar-search-ce86eba7b74ca130caa6.chunk.js",
   "angle/modules/common/navbar-search.js.map": "/packs/js/angle/modules/common/navbar-search-ce86eba7b74ca130caa6.chunk.js.map",
-  "angle/modules/common/now.js": "/packs/js/angle/modules/common/now-738d3a1aaf88affe6741.chunk.js",
-  "angle/modules/common/now.js.map": "/packs/js/angle/modules/common/now-738d3a1aaf88affe6741.chunk.js.map",
+  "angle/modules/common/now.js": "/packs/js/angle/modules/common/now-43f074c0a47869f22e44.chunk.js",
+  "angle/modules/common/now.js.map": "/packs/js/angle/modules/common/now-43f074c0a47869f22e44.chunk.js.map",
   "angle/modules/common/sidebar.js": "/packs/js/angle/modules/common/sidebar-8ebae4e708b0b545d3ed.chunk.js",
   "angle/modules/common/sidebar.js.map": "/packs/js/angle/modules/common/sidebar-8ebae4e708b0b545d3ed.chunk.js.map",
   "angle/modules/common/slimscroll.js": "/packs/js/angle/modules/common/slimscroll-065bf0350e7908fc5eaa.chunk.js",
   "angle/modules/common/slimscroll.js.map": "/packs/js/angle/modules/common/slimscroll-065bf0350e7908fc5eaa.chunk.js.map",
   "angle/modules/common/table-checkall.js": "/packs/js/angle/modules/common/table-checkall-a38df3837dfea55a4880.chunk.js",
   "angle/modules/common/table-checkall.js.map": "/packs/js/angle/modules/common/table-checkall-a38df3837dfea55a4880.chunk.js.map",
-  "angle/modules/common/toggle-state.js": "/packs/js/angle/modules/common/toggle-state-087947e7642c23db8b88.chunk.js",
-  "angle/modules/common/toggle-state.js.map": "/packs/js/angle/modules/common/toggle-state-087947e7642c23db8b88.chunk.js.map",
+  "angle/modules/common/toggle-state.js": "/packs/js/angle/modules/common/toggle-state-87033bd05937eb550a9a.chunk.js",
+  "angle/modules/common/toggle-state.js.map": "/packs/js/angle/modules/common/toggle-state-87033bd05937eb550a9a.chunk.js.map",
   "angle/modules/common/trigger-resize.js": "/packs/js/angle/modules/common/trigger-resize-2fd789d97cd55596d29d.chunk.js",
   "angle/modules/common/trigger-resize.js.map": "/packs/js/angle/modules/common/trigger-resize-2fd789d97cd55596d29d.chunk.js.map",
   "angle/modules/common/wrapper.js": "/packs/js/angle/modules/common/wrapper-041841179a8204295652.chunk.js",
   "angle/modules/common/wrapper.js.map": "/packs/js/angle/modules/common/wrapper-041841179a8204295652.chunk.js.map",
-  "application.js": "/packs/js/application-790079930b00423e7c09.chunk.js",
-  "application.js.map": "/packs/js/application-790079930b00423e7c09.chunk.js.map",
+  "angle/modules/forms/color-picker.js": "/packs/js/angle/modules/forms/color-picker-e925eb47a267ea4d6d00.chunk.js",
+  "angle/modules/forms/color-picker.js.map": "/packs/js/angle/modules/forms/color-picker-e925eb47a267ea4d6d00.chunk.js.map",
+  "angle/modules/forms/forms.js": "/packs/js/angle/modules/forms/forms-70094064e99cf32dfcef.chunk.js",
+  "angle/modules/forms/forms.js.map": "/packs/js/angle/modules/forms/forms-70094064e99cf32dfcef.chunk.js.map",
+  "angle/modules/forms/imagecrop.js": "/packs/js/angle/modules/forms/imagecrop-45a0f4d8a8ecab89e9e9.chunk.js",
+  "angle/modules/forms/imagecrop.js.map": "/packs/js/angle/modules/forms/imagecrop-45a0f4d8a8ecab89e9e9.chunk.js.map",
+  "angle/modules/forms/select2.js": "/packs/js/angle/modules/forms/select2-41c555faf27e04659089.chunk.js",
+  "angle/modules/forms/select2.js.map": "/packs/js/angle/modules/forms/select2-41c555faf27e04659089.chunk.js.map",
+  "angle/modules/forms/upload.js": "/packs/js/angle/modules/forms/upload-97b2ca60582c5e5f56d5.chunk.js",
+  "angle/modules/forms/upload.js.map": "/packs/js/angle/modules/forms/upload-97b2ca60582c5e5f56d5.chunk.js.map",
+  "angle/modules/forms/validation.js": "/packs/js/angle/modules/forms/validation-ce20c92e440a77c775f2.chunk.js",
+  "angle/modules/forms/validation.js.map": "/packs/js/angle/modules/forms/validation-ce20c92e440a77c775f2.chunk.js.map",
+  "angle/modules/forms/wizard.js": "/packs/js/angle/modules/forms/wizard-cf5e210925037cb255da.chunk.js",
+  "angle/modules/forms/wizard.js.map": "/packs/js/angle/modules/forms/wizard-cf5e210925037cb255da.chunk.js.map",
+  "angle/modules/forms/xeditable.js": "/packs/js/angle/modules/forms/xeditable-04e842609b34069fb122.chunk.js",
+  "angle/modules/forms/xeditable.js.map": "/packs/js/angle/modules/forms/xeditable-04e842609b34069fb122.chunk.js.map",
+  "application.js": "/packs/js/application-c2fe48325052b42a6d8a.chunk.js",
+  "application.js.map": "/packs/js/application-c2fe48325052b42a6d8a.chunk.js.map",
+  "cities.js": "/packs/js/cities-2cb45684df10abdcad2d.chunk.js",
+  "cities.js.map": "/packs/js/cities-2cb45684df10abdcad2d.chunk.js.map",
+  "departaments.js": "/packs/js/departaments-638b9a3eb6708719bc83.chunk.js",
+  "departaments.js.map": "/packs/js/departaments-638b9a3eb6708719bc83.chunk.js.map",
   "entrypoints": {
     "angle/app": {
       "js": [
         "/packs/js/runtime~angle/app-776cc2f1aacb1c536969.js",
-        "/packs/js/1-957de36067b125146a33.chunk.js",
-        "/packs/js/2-f38c611868dc3f924163.chunk.js",
+        "/packs/js/2-d3365453786d69019a96.chunk.js",
+        "/packs/js/3-5e7a819e101ca281182c.chunk.js",
         "/packs/js/0-75834e3e58468a09d850.chunk.js",
-        "/packs/js/3-2c776445726bc6c47ebd.chunk.js",
-        "/packs/js/angle/app-c8d6ef16211d7f6828a3.chunk.js"
+        "/packs/js/5-5c5229c32e881f48ae20.chunk.js",
+        "/packs/js/angle/app-6dc4a05eb0ea6544e802.chunk.js"
       ],
       "js.map": [
         "/packs/js/runtime~angle/app-776cc2f1aacb1c536969.js.map",
-        "/packs/js/1-957de36067b125146a33.chunk.js.map",
-        "/packs/js/2-f38c611868dc3f924163.chunk.js.map",
+        "/packs/js/2-d3365453786d69019a96.chunk.js.map",
+        "/packs/js/3-5e7a819e101ca281182c.chunk.js.map",
         "/packs/js/0-75834e3e58468a09d850.chunk.js.map",
-        "/packs/js/3-2c776445726bc6c47ebd.chunk.js.map",
-        "/packs/js/angle/app-c8d6ef16211d7f6828a3.chunk.js.map"
+        "/packs/js/5-5c5229c32e881f48ae20.chunk.js.map",
+        "/packs/js/angle/app-6dc4a05eb0ea6544e802.chunk.js.map"
       ]
     },
     "angle/custom/custom": {
@@ -77,13 +97,13 @@
     "angle/modules/common/card-tools": {
       "js": [
         "/packs/js/runtime~angle/modules/common/card-tools-9305658e3d8f58fdfa7b.js",
-        "/packs/js/1-957de36067b125146a33.chunk.js",
-        "/packs/js/angle/modules/common/card-tools-c84b56f0b3bb738f84ae.chunk.js"
+        "/packs/js/2-d3365453786d69019a96.chunk.js",
+        "/packs/js/angle/modules/common/card-tools-5f795b4c7070e4f1a3a8.chunk.js"
       ],
       "js.map": [
         "/packs/js/runtime~angle/modules/common/card-tools-9305658e3d8f58fdfa7b.js.map",
-        "/packs/js/1-957de36067b125146a33.chunk.js.map",
-        "/packs/js/angle/modules/common/card-tools-c84b56f0b3bb738f84ae.chunk.js.map"
+        "/packs/js/2-d3365453786d69019a96.chunk.js.map",
+        "/packs/js/angle/modules/common/card-tools-5f795b4c7070e4f1a3a8.chunk.js.map"
       ]
     },
     "angle/modules/common/constants": {
@@ -123,15 +143,15 @@
     "angle/modules/common/localize": {
       "js": [
         "/packs/js/runtime~angle/modules/common/localize-c30f02da1d6bb6778e49.js",
-        "/packs/js/1-957de36067b125146a33.chunk.js",
-        "/packs/js/2-f38c611868dc3f924163.chunk.js",
-        "/packs/js/angle/modules/common/localize-8b62960f68c4b585af7a.chunk.js"
+        "/packs/js/2-d3365453786d69019a96.chunk.js",
+        "/packs/js/3-5e7a819e101ca281182c.chunk.js",
+        "/packs/js/angle/modules/common/localize-1074bd69b2c365e2017f.chunk.js"
       ],
       "js.map": [
         "/packs/js/runtime~angle/modules/common/localize-c30f02da1d6bb6778e49.js.map",
-        "/packs/js/1-957de36067b125146a33.chunk.js.map",
-        "/packs/js/2-f38c611868dc3f924163.chunk.js.map",
-        "/packs/js/angle/modules/common/localize-8b62960f68c4b585af7a.chunk.js.map"
+        "/packs/js/2-d3365453786d69019a96.chunk.js.map",
+        "/packs/js/3-5e7a819e101ca281182c.chunk.js.map",
+        "/packs/js/angle/modules/common/localize-1074bd69b2c365e2017f.chunk.js.map"
       ]
     },
     "angle/modules/common/navbar-search": {
@@ -149,15 +169,15 @@
     "angle/modules/common/now": {
       "js": [
         "/packs/js/runtime~angle/modules/common/now-6b6aeaf8d6b4876f7c85.js",
-        "/packs/js/4-b86010588186211f993c.chunk.js",
+        "/packs/js/4-6b7d2e2ba21a936edf65.chunk.js",
         "/packs/js/0-75834e3e58468a09d850.chunk.js",
-        "/packs/js/angle/modules/common/now-738d3a1aaf88affe6741.chunk.js"
+        "/packs/js/angle/modules/common/now-43f074c0a47869f22e44.chunk.js"
       ],
       "js.map": [
         "/packs/js/runtime~angle/modules/common/now-6b6aeaf8d6b4876f7c85.js.map",
-        "/packs/js/4-b86010588186211f993c.chunk.js.map",
+        "/packs/js/4-6b7d2e2ba21a936edf65.chunk.js.map",
         "/packs/js/0-75834e3e58468a09d850.chunk.js.map",
-        "/packs/js/angle/modules/common/now-738d3a1aaf88affe6741.chunk.js.map"
+        "/packs/js/angle/modules/common/now-43f074c0a47869f22e44.chunk.js.map"
       ]
     },
     "angle/modules/common/sidebar": {
@@ -199,15 +219,15 @@
     "angle/modules/common/toggle-state": {
       "js": [
         "/packs/js/runtime~angle/modules/common/toggle-state-70947ad41a018dff3cfd.js",
-        "/packs/js/1-957de36067b125146a33.chunk.js",
+        "/packs/js/2-d3365453786d69019a96.chunk.js",
         "/packs/js/0-75834e3e58468a09d850.chunk.js",
-        "/packs/js/angle/modules/common/toggle-state-087947e7642c23db8b88.chunk.js"
+        "/packs/js/angle/modules/common/toggle-state-87033bd05937eb550a9a.chunk.js"
       ],
       "js.map": [
         "/packs/js/runtime~angle/modules/common/toggle-state-70947ad41a018dff3cfd.js.map",
-        "/packs/js/1-957de36067b125146a33.chunk.js.map",
+        "/packs/js/2-d3365453786d69019a96.chunk.js.map",
         "/packs/js/0-75834e3e58468a09d850.chunk.js.map",
-        "/packs/js/angle/modules/common/toggle-state-087947e7642c23db8b88.chunk.js.map"
+        "/packs/js/angle/modules/common/toggle-state-87033bd05937eb550a9a.chunk.js.map"
       ]
     },
     "angle/modules/common/trigger-resize": {
@@ -234,24 +254,198 @@
         "/packs/js/angle/modules/common/wrapper-041841179a8204295652.chunk.js.map"
       ]
     },
+    "angle/modules/forms/color-picker": {
+      "js": [
+        "/packs/js/runtime~angle/modules/forms/color-picker-173594d6a8f8a08231e2.js",
+        "/packs/js/1-bc2d9521d8bfae736be1.chunk.js",
+        "/packs/js/14-e8858322c02d77daf697.chunk.js",
+        "/packs/js/angle/modules/forms/color-picker-e925eb47a267ea4d6d00.chunk.js"
+      ],
+      "js.map": [
+        "/packs/js/runtime~angle/modules/forms/color-picker-173594d6a8f8a08231e2.js.map",
+        "/packs/js/1-bc2d9521d8bfae736be1.chunk.js.map",
+        "/packs/js/14-e8858322c02d77daf697.chunk.js.map",
+        "/packs/js/angle/modules/forms/color-picker-e925eb47a267ea4d6d00.chunk.js.map"
+      ]
+    },
+    "angle/modules/forms/forms": {
+      "js": [
+        "/packs/js/runtime~angle/modules/forms/forms-bbcc2dc49b196339a6d6.js",
+        "/packs/js/1-bc2d9521d8bfae736be1.chunk.js",
+        "/packs/js/10-3a7ddceeaa86fb427972.chunk.js",
+        "/packs/js/angle/modules/forms/forms-70094064e99cf32dfcef.chunk.js"
+      ],
+      "js.map": [
+        "/packs/js/runtime~angle/modules/forms/forms-bbcc2dc49b196339a6d6.js.map",
+        "/packs/js/1-bc2d9521d8bfae736be1.chunk.js.map",
+        "/packs/js/10-3a7ddceeaa86fb427972.chunk.js.map",
+        "/packs/js/angle/modules/forms/forms-70094064e99cf32dfcef.chunk.js.map"
+      ]
+    },
+    "angle/modules/forms/imagecrop": {
+      "js": [
+        "/packs/js/runtime~angle/modules/forms/imagecrop-9844262dd8e93397f1ab.js",
+        "/packs/js/1-bc2d9521d8bfae736be1.chunk.js",
+        "/packs/js/7-7a1dfc79861aeba6e32c.chunk.js",
+        "/packs/js/angle/modules/forms/imagecrop-45a0f4d8a8ecab89e9e9.chunk.js"
+      ],
+      "js.map": [
+        "/packs/js/runtime~angle/modules/forms/imagecrop-9844262dd8e93397f1ab.js.map",
+        "/packs/js/1-bc2d9521d8bfae736be1.chunk.js.map",
+        "/packs/js/7-7a1dfc79861aeba6e32c.chunk.js.map",
+        "/packs/js/angle/modules/forms/imagecrop-45a0f4d8a8ecab89e9e9.chunk.js.map"
+      ]
+    },
+    "angle/modules/forms/select2": {
+      "js": [
+        "/packs/js/runtime~angle/modules/forms/select2-a9422880a9754fe408e5.js",
+        "/packs/js/1-bc2d9521d8bfae736be1.chunk.js",
+        "/packs/js/9-e6d285322be494b14ad1.chunk.js",
+        "/packs/js/angle/modules/forms/select2-41c555faf27e04659089.chunk.js"
+      ],
+      "js.map": [
+        "/packs/js/runtime~angle/modules/forms/select2-a9422880a9754fe408e5.js.map",
+        "/packs/js/1-bc2d9521d8bfae736be1.chunk.js.map",
+        "/packs/js/9-e6d285322be494b14ad1.chunk.js.map",
+        "/packs/js/angle/modules/forms/select2-41c555faf27e04659089.chunk.js.map"
+      ]
+    },
+    "angle/modules/forms/upload": {
+      "js": [
+        "/packs/js/runtime~angle/modules/forms/upload-e43805da8ed2e82c2064.js",
+        "/packs/js/1-bc2d9521d8bfae736be1.chunk.js",
+        "/packs/js/15-686bba0aeb36db15d972.chunk.js",
+        "/packs/js/angle/modules/forms/upload-97b2ca60582c5e5f56d5.chunk.js"
+      ],
+      "js.map": [
+        "/packs/js/runtime~angle/modules/forms/upload-e43805da8ed2e82c2064.js.map",
+        "/packs/js/1-bc2d9521d8bfae736be1.chunk.js.map",
+        "/packs/js/15-686bba0aeb36db15d972.chunk.js.map",
+        "/packs/js/angle/modules/forms/upload-97b2ca60582c5e5f56d5.chunk.js.map"
+      ]
+    },
+    "angle/modules/forms/validation": {
+      "js": [
+        "/packs/js/runtime~angle/modules/forms/validation-7b88201749bed2bdeeb2.js",
+        "/packs/js/1-bc2d9521d8bfae736be1.chunk.js",
+        "/packs/js/13-d620fe8b05641ddd97b8.chunk.js",
+        "/packs/js/angle/modules/forms/validation-ce20c92e440a77c775f2.chunk.js"
+      ],
+      "js.map": [
+        "/packs/js/runtime~angle/modules/forms/validation-7b88201749bed2bdeeb2.js.map",
+        "/packs/js/1-bc2d9521d8bfae736be1.chunk.js.map",
+        "/packs/js/13-d620fe8b05641ddd97b8.chunk.js.map",
+        "/packs/js/angle/modules/forms/validation-ce20c92e440a77c775f2.chunk.js.map"
+      ]
+    },
+    "angle/modules/forms/wizard": {
+      "js": [
+        "/packs/js/runtime~angle/modules/forms/wizard-d2a500a8dbde7c949021.js",
+        "/packs/js/1-bc2d9521d8bfae736be1.chunk.js",
+        "/packs/js/8-6e1baed17688520c347c.chunk.js",
+        "/packs/js/angle/modules/forms/wizard-cf5e210925037cb255da.chunk.js"
+      ],
+      "js.map": [
+        "/packs/js/runtime~angle/modules/forms/wizard-d2a500a8dbde7c949021.js.map",
+        "/packs/js/1-bc2d9521d8bfae736be1.chunk.js.map",
+        "/packs/js/8-6e1baed17688520c347c.chunk.js.map",
+        "/packs/js/angle/modules/forms/wizard-cf5e210925037cb255da.chunk.js.map"
+      ]
+    },
+    "angle/modules/forms/xeditable": {
+      "js": [
+        "/packs/js/runtime~angle/modules/forms/xeditable-a5c0c177ff300845dd6c.js",
+        "/packs/js/1-bc2d9521d8bfae736be1.chunk.js",
+        "/packs/js/6-05a9a263657f942b80fa.chunk.js",
+        "/packs/js/angle/modules/forms/xeditable-04e842609b34069fb122.chunk.js"
+      ],
+      "js.map": [
+        "/packs/js/runtime~angle/modules/forms/xeditable-a5c0c177ff300845dd6c.js.map",
+        "/packs/js/1-bc2d9521d8bfae736be1.chunk.js.map",
+        "/packs/js/6-05a9a263657f942b80fa.chunk.js.map",
+        "/packs/js/angle/modules/forms/xeditable-04e842609b34069fb122.chunk.js.map"
+      ]
+    },
     "application": {
       "js": [
         "/packs/js/runtime~application-aa001ceb574a6f67800d.js",
-        "/packs/js/1-957de36067b125146a33.chunk.js",
-        "/packs/js/2-f38c611868dc3f924163.chunk.js",
-        "/packs/js/5-310e3a406e2ab0ddb5cd.chunk.js",
+        "/packs/js/2-d3365453786d69019a96.chunk.js",
+        "/packs/js/3-5e7a819e101ca281182c.chunk.js",
+        "/packs/js/12-69e90527e5f01814f97a.chunk.js",
         "/packs/js/0-75834e3e58468a09d850.chunk.js",
-        "/packs/js/3-2c776445726bc6c47ebd.chunk.js",
-        "/packs/js/application-790079930b00423e7c09.chunk.js"
+        "/packs/js/5-5c5229c32e881f48ae20.chunk.js",
+        "/packs/js/application-c2fe48325052b42a6d8a.chunk.js"
       ],
       "js.map": [
         "/packs/js/runtime~application-aa001ceb574a6f67800d.js.map",
-        "/packs/js/1-957de36067b125146a33.chunk.js.map",
-        "/packs/js/2-f38c611868dc3f924163.chunk.js.map",
-        "/packs/js/5-310e3a406e2ab0ddb5cd.chunk.js.map",
+        "/packs/js/2-d3365453786d69019a96.chunk.js.map",
+        "/packs/js/3-5e7a819e101ca281182c.chunk.js.map",
+        "/packs/js/12-69e90527e5f01814f97a.chunk.js.map",
         "/packs/js/0-75834e3e58468a09d850.chunk.js.map",
-        "/packs/js/3-2c776445726bc6c47ebd.chunk.js.map",
-        "/packs/js/application-790079930b00423e7c09.chunk.js.map"
+        "/packs/js/5-5c5229c32e881f48ae20.chunk.js.map",
+        "/packs/js/application-c2fe48325052b42a6d8a.chunk.js.map"
+      ]
+    },
+    "cities": {
+      "js": [
+        "/packs/js/runtime~cities-a4b03e8db9de423f0094.js",
+        "/packs/js/cities-2cb45684df10abdcad2d.chunk.js"
+      ],
+      "js.map": [
+        "/packs/js/runtime~cities-a4b03e8db9de423f0094.js.map",
+        "/packs/js/cities-2cb45684df10abdcad2d.chunk.js.map"
+      ]
+    },
+    "departaments": {
+      "js": [
+        "/packs/js/runtime~departaments-c007ee6f40c5a27bd46f.js",
+        "/packs/js/departaments-638b9a3eb6708719bc83.chunk.js"
+      ],
+      "js.map": [
+        "/packs/js/runtime~departaments-c007ee6f40c5a27bd46f.js.map",
+        "/packs/js/departaments-638b9a3eb6708719bc83.chunk.js.map"
+      ]
+    },
+    "estates": {
+      "js": [
+        "/packs/js/runtime~estates-83b8eef718edfa71169c.js",
+        "/packs/js/1-bc2d9521d8bfae736be1.chunk.js",
+        "/packs/js/9-e6d285322be494b14ad1.chunk.js",
+        "/packs/js/8-6e1baed17688520c347c.chunk.js",
+        "/packs/js/6-05a9a263657f942b80fa.chunk.js",
+        "/packs/js/7-7a1dfc79861aeba6e32c.chunk.js",
+        "/packs/js/estates-53fc662c94fdafcf4387.chunk.js"
+      ],
+      "js.map": [
+        "/packs/js/runtime~estates-83b8eef718edfa71169c.js.map",
+        "/packs/js/1-bc2d9521d8bfae736be1.chunk.js.map",
+        "/packs/js/9-e6d285322be494b14ad1.chunk.js.map",
+        "/packs/js/8-6e1baed17688520c347c.chunk.js.map",
+        "/packs/js/6-05a9a263657f942b80fa.chunk.js.map",
+        "/packs/js/7-7a1dfc79861aeba6e32c.chunk.js.map",
+        "/packs/js/estates-53fc662c94fdafcf4387.chunk.js.map"
+      ]
+    },
+    "owners": {
+      "js": [
+        "/packs/js/runtime~owners-5776e14ba40c76c05883.js",
+        "/packs/js/1-bc2d9521d8bfae736be1.chunk.js",
+        "/packs/js/owners-bdf3420505bdbb4d5762.chunk.js"
+      ],
+      "js.map": [
+        "/packs/js/runtime~owners-5776e14ba40c76c05883.js.map",
+        "/packs/js/1-bc2d9521d8bfae736be1.chunk.js.map",
+        "/packs/js/owners-bdf3420505bdbb4d5762.chunk.js.map"
+      ]
+    },
+    "rooms": {
+      "js": [
+        "/packs/js/runtime~rooms-7fd3ffe374ba261b00ee.js",
+        "/packs/js/rooms-dcc766c074e24863ee08.chunk.js"
+      ],
+      "js.map": [
+        "/packs/js/runtime~rooms-7fd3ffe374ba261b00ee.js.map",
+        "/packs/js/rooms-dcc766c074e24863ee08.chunk.js.map"
       ]
     },
     "singleview": {
@@ -263,8 +457,26 @@
         "/packs/js/runtime~singleview-60f0542e8ed35bc6bfab.js.map",
         "/packs/js/singleview-27ac9e6fe4ef0b2c53fe.chunk.js.map"
       ]
+    },
+    "welcome": {
+      "js": [
+        "/packs/js/runtime~welcome-be78a4323c2ab56719a0.js",
+        "/packs/js/welcome-1241aba12e91f572475a.chunk.js"
+      ],
+      "js.map": [
+        "/packs/js/runtime~welcome-be78a4323c2ab56719a0.js.map",
+        "/packs/js/welcome-1241aba12e91f572475a.chunk.js.map"
+      ]
     }
   },
+  "estates.js": "/packs/js/estates-53fc662c94fdafcf4387.chunk.js",
+  "estates.js.map": "/packs/js/estates-53fc662c94fdafcf4387.chunk.js.map",
+  "media/img/clear.png": "/packs/media/img/clear-f4708630.png",
+  "media/img/loading.gif": "/packs/media/img/loading-7b977607.gif",
+  "owners.js": "/packs/js/owners-bdf3420505bdbb4d5762.chunk.js",
+  "owners.js.map": "/packs/js/owners-bdf3420505bdbb4d5762.chunk.js.map",
+  "rooms.js": "/packs/js/rooms-dcc766c074e24863ee08.chunk.js",
+  "rooms.js.map": "/packs/js/rooms-dcc766c074e24863ee08.chunk.js.map",
   "runtime~angle/app.js": "/packs/js/runtime~angle/app-776cc2f1aacb1c536969.js",
   "runtime~angle/app.js.map": "/packs/js/runtime~angle/app-776cc2f1aacb1c536969.js.map",
   "runtime~angle/custom/custom.js": "/packs/js/runtime~angle/custom/custom-f7c87785a3112d7ccd16.js",
@@ -297,10 +509,40 @@
   "runtime~angle/modules/common/trigger-resize.js.map": "/packs/js/runtime~angle/modules/common/trigger-resize-34b8a09ef4c4dcb01f5d.js.map",
   "runtime~angle/modules/common/wrapper.js": "/packs/js/runtime~angle/modules/common/wrapper-80d2ea97b6a15902b748.js",
   "runtime~angle/modules/common/wrapper.js.map": "/packs/js/runtime~angle/modules/common/wrapper-80d2ea97b6a15902b748.js.map",
+  "runtime~angle/modules/forms/color-picker.js": "/packs/js/runtime~angle/modules/forms/color-picker-173594d6a8f8a08231e2.js",
+  "runtime~angle/modules/forms/color-picker.js.map": "/packs/js/runtime~angle/modules/forms/color-picker-173594d6a8f8a08231e2.js.map",
+  "runtime~angle/modules/forms/forms.js": "/packs/js/runtime~angle/modules/forms/forms-bbcc2dc49b196339a6d6.js",
+  "runtime~angle/modules/forms/forms.js.map": "/packs/js/runtime~angle/modules/forms/forms-bbcc2dc49b196339a6d6.js.map",
+  "runtime~angle/modules/forms/imagecrop.js": "/packs/js/runtime~angle/modules/forms/imagecrop-9844262dd8e93397f1ab.js",
+  "runtime~angle/modules/forms/imagecrop.js.map": "/packs/js/runtime~angle/modules/forms/imagecrop-9844262dd8e93397f1ab.js.map",
+  "runtime~angle/modules/forms/select2.js": "/packs/js/runtime~angle/modules/forms/select2-a9422880a9754fe408e5.js",
+  "runtime~angle/modules/forms/select2.js.map": "/packs/js/runtime~angle/modules/forms/select2-a9422880a9754fe408e5.js.map",
+  "runtime~angle/modules/forms/upload.js": "/packs/js/runtime~angle/modules/forms/upload-e43805da8ed2e82c2064.js",
+  "runtime~angle/modules/forms/upload.js.map": "/packs/js/runtime~angle/modules/forms/upload-e43805da8ed2e82c2064.js.map",
+  "runtime~angle/modules/forms/validation.js": "/packs/js/runtime~angle/modules/forms/validation-7b88201749bed2bdeeb2.js",
+  "runtime~angle/modules/forms/validation.js.map": "/packs/js/runtime~angle/modules/forms/validation-7b88201749bed2bdeeb2.js.map",
+  "runtime~angle/modules/forms/wizard.js": "/packs/js/runtime~angle/modules/forms/wizard-d2a500a8dbde7c949021.js",
+  "runtime~angle/modules/forms/wizard.js.map": "/packs/js/runtime~angle/modules/forms/wizard-d2a500a8dbde7c949021.js.map",
+  "runtime~angle/modules/forms/xeditable.js": "/packs/js/runtime~angle/modules/forms/xeditable-a5c0c177ff300845dd6c.js",
+  "runtime~angle/modules/forms/xeditable.js.map": "/packs/js/runtime~angle/modules/forms/xeditable-a5c0c177ff300845dd6c.js.map",
   "runtime~application.js": "/packs/js/runtime~application-aa001ceb574a6f67800d.js",
   "runtime~application.js.map": "/packs/js/runtime~application-aa001ceb574a6f67800d.js.map",
+  "runtime~cities.js": "/packs/js/runtime~cities-a4b03e8db9de423f0094.js",
+  "runtime~cities.js.map": "/packs/js/runtime~cities-a4b03e8db9de423f0094.js.map",
+  "runtime~departaments.js": "/packs/js/runtime~departaments-c007ee6f40c5a27bd46f.js",
+  "runtime~departaments.js.map": "/packs/js/runtime~departaments-c007ee6f40c5a27bd46f.js.map",
+  "runtime~estates.js": "/packs/js/runtime~estates-83b8eef718edfa71169c.js",
+  "runtime~estates.js.map": "/packs/js/runtime~estates-83b8eef718edfa71169c.js.map",
+  "runtime~owners.js": "/packs/js/runtime~owners-5776e14ba40c76c05883.js",
+  "runtime~owners.js.map": "/packs/js/runtime~owners-5776e14ba40c76c05883.js.map",
+  "runtime~rooms.js": "/packs/js/runtime~rooms-7fd3ffe374ba261b00ee.js",
+  "runtime~rooms.js.map": "/packs/js/runtime~rooms-7fd3ffe374ba261b00ee.js.map",
   "runtime~singleview.js": "/packs/js/runtime~singleview-60f0542e8ed35bc6bfab.js",
   "runtime~singleview.js.map": "/packs/js/runtime~singleview-60f0542e8ed35bc6bfab.js.map",
+  "runtime~welcome.js": "/packs/js/runtime~welcome-be78a4323c2ab56719a0.js",
+  "runtime~welcome.js.map": "/packs/js/runtime~welcome-be78a4323c2ab56719a0.js.map",
   "singleview.js": "/packs/js/singleview-27ac9e6fe4ef0b2c53fe.chunk.js",
-  "singleview.js.map": "/packs/js/singleview-27ac9e6fe4ef0b2c53fe.chunk.js.map"
+  "singleview.js.map": "/packs/js/singleview-27ac9e6fe4ef0b2c53fe.chunk.js.map",
+  "welcome.js": "/packs/js/welcome-1241aba12e91f572475a.chunk.js",
+  "welcome.js.map": "/packs/js/welcome-1241aba12e91f572475a.chunk.js.map"
 }

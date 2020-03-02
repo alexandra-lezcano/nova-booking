@@ -54,9 +54,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'will_paginate'
-
 gem 'will_paginate-bootstrap4'
-
-gem 'filterrific'
-
+gem 'filterrific' #, path: '../filterrific'
 gem 'enumerize'
+
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+gem 'sassc-rails'

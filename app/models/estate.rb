@@ -2,18 +2,20 @@
 
 class Estate < ApplicationRecord
   belongs_to :city
-  has_and_belongs_to_many :facilities
   has_many_attached :images
+  has_many :facilities_estates
+  has_many :facilities, through: :facilities_estates
   has_many :rooms, dependent: :delete_all
   accepts_nested_attributes_for :rooms, allow_destroy: true
   belongs_to :owner
   # default for will_paginate
-  self.per_page = 1
+  self.per_page = 10
 
-  filterrific default_filter_params: { sorted_by: 'name_asc' },
-              available_filters: %w[
+  filterrific :default_filter_params => { :sorted_by => 'name_asc' },
+              :available_filters => %w[
                 sorted_by
                 search_query
+                with_any_facility_ids
               ]
 
   scope :search_query, lambda { |query|
@@ -39,7 +41,7 @@ class Estate < ApplicationRecord
     ).joins(:city).references(:cities)
   }
 
-  scope :sorted_by, lambda { |sort_option|
+  scope :sorted_by, ->(sort_option) {
     # extract the sort direction from the param value.
     direction = sort_option =~ /desc$/ ? 'desc' : 'asc'
     estates = Estate.arel_table
@@ -57,4 +59,4 @@ class Estate < ApplicationRecord
         ['Name (Z-A)', 'name_desc']
     ]
   end
-end
+  end

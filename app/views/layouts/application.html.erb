@@ -1,71 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-   <meta name="description" content="Bootstrap Admin App + Ruby on Rails">
-   <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
-   <title>Angle - Bootstrap Admin Template</title>
+  <head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+     <meta name="description" content="Bootstrap Admin App + Ruby on Rails">
+     <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+     <title>Angle - Bootstrap Admin Template</title>
 
-   <!-- =============== VIEW STYLES ===============-->
-   <% if (controller.controller_name != "sessions") && (controller.controller_name != "registrations") && (controller.controller_name != "passwords") %>
-   <%= stylesheet_link_tag params[:controller] %>
-   <% end %>
-   <!-- =============== APP STYLES ===============-->
-   <%= stylesheet_link_tag 'application', media: 'all', id: "maincss" %>
+     <!-- =============== VIEW STYLES ===============-->
+     <% if (controller.controller_name != "sessions") && (controller.controller_name != "registrations") && (controller.controller_name != "passwords") %>
+     <%= stylesheet_link_tag params[:controller] %>
+     <% end %>
+     <!-- =============== APP STYLES ===============-->
+     <%= stylesheet_link_tag 'application', media: 'all', id: "maincss" %>
 
-   <%= yield :vendor_css_area %>
+     <%= yield :vendor_css_area %>
 
-   <%= csrf_meta_tags %>
-   <%= csp_meta_tag %>
-</head>
+     <%= csrf_meta_tags %>
+     <%= csp_meta_tag %>
+  </head>
 
-<body>
-   <div class="wrapper">
-      <!-- top navbar-->
-      <header class="topnavbar-wrapper">
-         <%= render partial: "layouts/partials/topnavbar" %>
-      </header>
-      <!-- sidebar-->
-      <aside class="aside-container">
-         <%= render partial: "layouts/partials/sidebar" %>
-      </aside>
-      <!-- offsidebar-->
-      <aside class="offsidebar d-none">
-         <%= render partial: "layouts/partials/offsidebar" %>
-      </aside>
-      <!-- Main section-->
-      <section class="section-container">
-         <!-- Page content-->
-         <div class="content-wrapper">
-           <% if notice %>
-             <div class="alert alert-success">
-               <%= notice%>
-             </div>
-           <% end %>
-           <% if alert %>
-             <div class="alert alert-danger">
-               <%= alert %>
-             </div>
-           <% end %>
-            <%= yield %>
-         </div>
-      </section>
-      <!-- Page footer-->
-      <footer class="footer-container">
-         <%= render partial: "layouts/partials/footer" %>
-      </footer>
-   </div>
+  <body>
+        <!-- top navbar-->
+        <header class="topnavbar-wrapper">
+           <%= render partial: "layouts/partials/topnavbar" %>
+        </header>
 
-   <!-- =============== APP SCRIPTS ===============-->
-   <% if (controller.controller_name != "sessions") && (controller.controller_name != "registrations") && (controller.controller_name != "passwords") %>
-   <%= javascript_packs_with_chunks_tag 'application', params[:controller] %>
-  <% end %>
-   <%= yield :vendor_js_area %>
+        <!-- Main section-->
+        <section class="section-container" style="background-color: #ff902b">
+           <!-- Page content-->
+           <div class="content-wrapper">
+             <% if notice %>
+               <div class="alert alert-success">
+                 <%= notice%>
+               </div>
+             <% end %>
+             <% if alert %>
+               <div class="alert alert-danger">
+                 <%= alert %>
+               </div>
+             <% end %>
+              <%= yield %>
+           </div>
+        </section>
+        <!-- Page footer-->
+        <footer class="footer-container">
+           <%= render partial: "layouts/partials/footer" %>
+        </footer>
 
-   <%= yield :body_area %>
+     <!-- =============== APP SCRIPTS ===============-->
+     <% if (controller.controller_name != "sessions") && (controller.controller_name != "registrations") && (controller.controller_name != "passwords") %>
+     <%= javascript_packs_with_chunks_tag 'application', params[:controller] %>
+    <% end %>
+     <%= yield :vendor_js_area %>
 
-</body>
+     <%= yield :body_area %>
 
+  </body>
 </html>
