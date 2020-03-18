@@ -1,0 +1,44 @@
+<div>
+  <table class="table table-striped table-hover w-100 col-7">
+    <thead class="thead-light">
+    <tr>
+      <th class="text-center">Ciudades</th>
+      <th class="text-center">Departamentos</th>
+      <th class="text-center">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% cities.each do |city| %>
+      <tr>
+        <td class="text-center"><%= city.name %></td>
+        <td class="text-center"><%= city.departament_name %></td>
+        <td class="text-center">
+          <div class="btn-group" role="group">
+            <%#= link_to city do %>
+              <!--button class="btn btn-link text-primary" title="Ver"><i class="fas fa-eye"></i></button-->
+            <%# end %>
+            <%= link_to edit_city_path(city) do %>
+              <button class="btn btn-link text-primary" title="Editar"><i class="fas fa-edit"></i></button>
+            <% end %>
+            <%= link_to city, method: :delete, data: {confirm: 'Estás seguro?'} do %>
+              <button class="btn btn-link text-danger" title="Eliminar"><i class="fas fa-trash-alt"></i></button>
+            <% end %>
+          </div>
+        </td>
+
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="card card-columns-2 card-body bg-gray-light col-7">
+  <div class="row row-flush">
+    <div class="col">
+      <%= will_paginate cities, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+    </div>
+    <div class="col">
+      <%= page_entries_info cities, :model => 'city', :class => 'align-middle' %>
+    </div>
+  </div>
+</div>

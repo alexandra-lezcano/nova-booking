@@ -7,9 +7,9 @@ class Owner < ApplicationRecord
   private
   def correct_image_type
     if image.attached? && !image.content_type.in?(%w(image/jpeg image/png))
-      errors.add(:image, "Debe seleccionar una imagen")
+      errors.add(:Debe, "seleccionar una imagen")
     elsif image.attached? == false
-      errors.add(:Imagen, "requerida")
+      errors.add(:Imagen, "de perfil requerida")
     end
   end
 end

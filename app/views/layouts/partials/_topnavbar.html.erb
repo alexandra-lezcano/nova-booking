@@ -43,6 +43,16 @@
               <% end %>
             </div>
           </li>
+          <% if user_signed_in? && is_owner? %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ciudades
+              </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item"><%= link_to 'Ciudades', cities_path, :class => "nav-link" %></a>
+                  <a class="dropdown-item"><%= link_to 'Departamentos', departaments_path, :class => "nav-link"  %></a>
+                </div>
+            </li>
+          <%end %>
         </ul>
       </nav>
     </li>

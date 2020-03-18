@@ -1,37 +1,50 @@
 <div class="col-12 filter-block">
-  <%= puts filterrific.inspect %>
-  <%= form_for_filterrific(filterrific, url: welcome_results_path, html: {id: :manual_filterrific_form}) do |f| %>
+    <%= puts filterrific.inspect %>
+    <%= form_for_filterrific(filterrific, url: welcome_results_path, html: {id: :manual_filterrific_form}) do |f| %>
     <%#= form_for_filterrific @filterrific do |f| %>
     <div class="form-group col-12">
-      <div class="row has-search d-flex align-items-center">
-        <span class="fas fa-globe form-control-feedback"></span>
-        <%= f.text_field :search_query, placeholder: "¿Qué ciudad búscas?",
+        <div class="row has-search d-flex align-items-center">
+            <span class="fas fa-globe form-control-feedback"></span>
+            <%= f.text_field :search_query, placeholder: "¿Qué ciudad búscas?",
                          :class => 'filterrific-periodically-observed form-control' %>
-      </div>
-      <div class="row">
-        <div class="col-md-5 col-sm-12 has-search d-flex align-items-center">
-          <span class="fa fa-search form-control-feedback"></span>
-          <%= f.date_field(:with_date_gte, class: 'form-control datepicker-input',
-                           :'id' => 'filterrific_with_date_gte',
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-sm-12 has-search d-flex align-items-center">
+                <span class="fa fa-calendar form-control-feedback"></span>
+                <%= f.text_field(:with_date_gte, class: 'form-control datepicker',
+                           :'data-provide' => 'datepicker',
+                           :'data-date-start-date' => "+0d",
+                           :'id' => 'with_date_gte',
                            :'data-target' => '#filterrific_with_date_gte',
-                           :'data-toggle' => 'datepicker',
-                           :'value' => '') %>
+                           :'data-toggle' => 'datepicker') %>
+            </div>
+            <div class="col-md-2 col-sm-12 d-flex align-items-center">
+                <i class="fa-3x mr-2 fa fa-arrows-alt-h align-middle"></i>
+            </div>
+            <div class="col-md-5 col-sm-12 has-search d-flex align-items-center">
+                <span class="fa fa-calendar form-control-feedback"></span>
+                <%= f.text_field(:with_date_lte, class: 'form-control datepicker',
+                           :'data-provide' => 'datepicker',
+                           :'data-date-start-date' => "+0d",
+                           :'id' => 'with_date_lte',
+                           :'data-target' => '#filterrific_with_date_lte',
+                           :'data-toggle' => 'datepicker') %>
+            </div>
         </div>
-        <div class="col-md-2 col-sm-12 d-flex align-items-center justify-content-center">
-          <i class="fa-3x mr-2 fa fa-arrows-alt-h"></i>
+        <div class="row has-search d-flex align-items-center">
+            <%= f.submit :Buscar, class: 'form-control btn btn-primary' %>
         </div>
-        <div class="col-md-5 col-sm-12 has-search d-flex align-items-center">
-          <span class="fa fa-search form-control-feedback"></span>
-          <%= f.date_field(:with_date_gte, class: 'form-control datepicker-input',
-                           :'id' => 'filterrific_with_date_gte',
-                           :'data-target' => '#filterrific_with_date_lt',
-                           :'data-toggle' => 'datepicker',
-                           :'value' => '') %>
-        </div>
-      </div>
-      <div class="row has-search d-flex align-items-center">
-        <%= f.submit :Buscar, class: 'form-control btn btn-primary' %>
-      </div>
     </div>
-  <% end %>
+    <% end %>
 </div>
+<script>
+    $(function() {
+        $('#with_date_gte, #with_date_lte').datepicker({
+            todayHighlight: true,
+            autoclose: true,
+            format: "mm/dd/yyyy",
+            clearBtn: true,
+            startDate: new Date()
+        });
+    });
+</script>

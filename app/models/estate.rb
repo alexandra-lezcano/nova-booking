@@ -9,16 +9,17 @@ class Estate < ApplicationRecord
   belongs_to :owner
   delegate :name, :to => :city, :prefix => true
   # default for will_paginate
-  self.per_page = 2
+  self.per_page = 5
 
   scope :estates_by_owner, -> (current_owner_id) { where(owner_id: current_owner_id) }
   scope :only_published, -> { where(status: true) }
+  scope :with_rooms, -> {Estate.only_published.joins(:rooms).where('rooms.quantity > 0').group(:id)}
 
   filterrific :default_filter_params => { :sorted_by => 'name_asc' },
               :available_filters => %w[
                 sorted_by
                 search_query
-                with_date_lt
+                with_date_lte
                 with_date_gte
               ]
 
@@ -68,11 +69,39 @@ class Estate < ApplicationRecord
   enumerize :estate_type, in: [:one_apartment, :home, :hotel]
 
   scope :with_date_gte, ->(ref_date) {
-    where("estates.created_at >= ?", ref_date)
+    where("estates.id in (select distinct ro.estate_id
+    from public.rooms as ro
+    where ro.id not in (
+    Select distinct r.id 
+    from public.rooms as r
+    inner join public.booking_details as bd on bd.room_id = r.id
+    inner join public.bookings as b on b.id = bd.booking_id
+    where b.booking_state != false 
+    and (ro.quantity - (select coalesce(sum(bd1.quantity),0) from public.rooms as r1
+        inner join public.booking_details as bd1 on bd1.room_id = r1.id
+        inner join public.bookings as b1 on b1.id = bd1.booking_id
+        where b1.booking_state != false 
+        and r1.id = ro.id 
+        and (b1.date_start <= ? or b1.date_end >= ?))) = 0))", ref_date, ref_date).joins(rooms: {booking_detail: :booking})
+    #where("estates.created_at >= ?", ref_date)
   }
 
-  scope :with_date_lt, ->(ref_date) {
-    where('estates.created_at <= ?', ref_date)
+  scope :with_date_lte, ->(ref_date) {
+    where("estates.id in (select distinct ro.estate_id
+    from public.rooms as ro
+    where ro.id not in (
+    Select distinct r.id 
+    from public.rooms as r
+    inner join public.booking_details as bd on bd.room_id = r.id
+    inner join public.bookings as b on b.id = bd.booking_id
+    where b.booking_state != false 
+    and (ro.quantity - (select coalesce(sum(bd1.quantity),0) from public.rooms as r1
+        inner join public.booking_details as bd1 on bd1.room_id = r1.id
+        inner join public.bookings as b1 on b1.id = bd1.booking_id
+        where b1.booking_state != false 
+        and r1.id = ro.id 
+        and (b1.date_end <= ? or b1.date_end >= ?))) = 0))", ref_date, ref_date).joins(rooms: {booking_detail: :booking})
+    #where('estates.created_at <= ?', ref_date)
   }
 
   def isPublished

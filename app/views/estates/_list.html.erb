@@ -1,37 +1,48 @@
-<div class="table-responsive">
-  <table class="table table-bordered table-hover">
-      <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Direccion</th>
-            <th>Ciudad</th>
-            <th>Estado</th>
-            <th colspan="4">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% estates.each do |estate| %>
-        <tr>
-          <td><%= estate.name %></td>
-          <td><%= estate.address %></td>
-          <td><%= City.find_by(id: estate.city_id).name %></td>
-          <td>
-            <% if estate.status %>
+<div>
+  <table class="table table-striped table-hover w-100">
+    <thead class="thead-light">
+    <tr>
+      <th class="text-center">Nombre</th>
+      <th class="text-center">Direccion</th>
+      <th class="text-center">Ciudad</th>
+      <th class="text-center">Estado</th>
+      <th class="text-center">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% estates.each do |estate| %>
+      <tr>
+        <td class="text-center"><%= estate.name %></td>
+        <td class="text-center"><%= estate.address %></td>
+        <td class="text-center"><%= City.find_by(id: estate.city_id).name %></td>
+        <td class="text-center">
+          <% if estate.status %>
               <span class="badge badge-green float-center">
                 <%= "Publicado" %>
               </span>
-            <% else %>
+          <% else %>
               <span class="badge badge-warning float-center">
                 <%= "No publicado" %>
               </span>
+          <% end %>
+        </td>
+        <td class="text-center">
+          <div class="btn-group" role="group">
+            <%= link_to show_detail_estate_path(estate.id) do %>
+              <button class="btn btn-link text-primary" title="Ver"><i class="fas fa-eye"></i></button>
             <% end %>
-          </td>
-          <td><%= link_to 'Ver', estate %></td>
-          <td><%= link_to 'Editar', edit_estate_path(estate) %></td>
-          <td><%= link_to 'Eliminar', estate, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
-        </tr>
-        <% end %>
-      </tbody>
+            <%#= link_to edit_estate_path(estate) do %>
+              <button class="btn btn-link text-primary" title="Editar"><i class="fas fa-edit"></i></button>
+            <%# end %>
+            <%= link_to estate, method: :delete, data: {confirm: 'Estás seguro?'} do %>
+              <button class="btn btn-link text-danger" title="Eliminar"><i class="fas fa-trash-alt"></i></button>
+            <% end %>
+          </div>
+        </td>
+
+      </tr>
+    <% end %>
+    </tbody>
   </table>
   <div class="card card-columns-2 card-body bg-gray-light">
     <div class="row row-flush">

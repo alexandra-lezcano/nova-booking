@@ -1,26 +1,24 @@
+<div class="content-heading">Departamento</div>
 
-
-<div class="row">
-  <div class="col-lg-10">
+<div align="center">
+  <div class="col-5">
     <div class="card card-default">
       <div class="card-body">
-        <div class="row py-4 justify-content-lg-start">
-          <div class="col-12 col-sm-10">
-            <form class="form-horizontal">
-              <div class="form-group row">
-                <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-left">Departamento</label>
-                <div class="col-xl-10 col-md-9 col-8">
-                  <label class=" col-form-label text-left"><%= @departament.name %></label>
-                </div>
-              </div>
-            </form>
+        <div class="row">
+          <div class="card-body height_div">
+            <div class="form-group text-left row">
+              <h3 class="col-4">Departamento: </h3>
+              <label class="col-8"><%= @departament.name %></label>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <fieldset>
+      <div class="form-group row">
+        <%= link_to 'Atras', departaments_path, class: "btn btn-secondary" %>
+        <%= link_to 'Editar', edit_departament_path(@departament), class: "btn btn-primary" %>
+      </div>
+    </fieldset>
   </div>
 </div>
-
-
-<%= link_to 'Edit', edit_departament_path(@departament) %> |
-<%= link_to 'Back', departaments_path %>

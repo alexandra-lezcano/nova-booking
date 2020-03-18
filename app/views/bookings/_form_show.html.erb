@@ -1,0 +1,78 @@
+  <div class="row">
+    <div class="col-lg-6"></div>
+  </div>
+  <div class="content-heading">Reserva</div>
+  <div class="card card-default">
+    <fieldset style="margin: 0; border: 0; padding: 0;" class="card-body">
+      <div class="row ocultar">
+        <div class="col-md-6">
+          <div class="card-body">
+            <div class="form-group">
+              <label>Nombre y Apellido</label>
+              <br>
+              <label><%=booking.client_name%></label>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label>Correo </label>
+              <br>
+              <label><%=booking.client_email%></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card-body">
+            <div class="form-group">
+              <label>Llegada</label>
+              <br>
+              <label><%=booking.date_start.strftime("%Y-%m-%d") %></label>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label>Salida </label>
+              <br>
+             <label><%=booking.date_end.strftime("%Y-%m-%d")%></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="table-responsive table-bordered mb-3">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Tipo de habitación</th>
+            <th>Capacidad</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+            <th class="text-right">Total</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% booking.booking_details.each do |f| %>
+            <tr>
+              <td><%= room_type(f)%> </td>
+              <td><%=room_capacity(f) %></td>
+              <td><%=f.quantity %></td>
+              <td><%= f.subtotal / f.quantity %></td>
+              <td><%= f.subtotal %></td>
+            </tr>
+          <%end%>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-lg-12 py-2">
+        <div class="row mb-3 align-items-center">
+          <div class="col-9">
+            <div class="text-right h3">TOTAL</div>
+          </div>
+          <div class="col-3">
+            <div class="text-right h3"> <%=booking.total_amount %></div>
+
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>

@@ -1,11 +1,18 @@
-<h1>Mis Propiedades</h1>
+<div class="content-heading">
+  <div> Mis Propiedades</div>
+
+  <div class="ml-auto">
+    <%= link_to new_estate_path do %>
+      <button class="btn btn btn-info" title="Nueva propiedad">
+        <i class="fas fa-plus text-light fa-1x"></i>
+      </button>
+    <% end %>
+  </div>
+</div>
 
 <div id="results">
   <%= render(
-    partial: 'estates/list',
-    locals: {estates: @estates}
-  ) %>
+          partial: 'estates/list',
+          locals: {estates: @estates}
+      ) %>
 </div>
-
-<br>
-<%= link_to 'Nueva Propiedad', new_estate_path, :class => "mb-1 btn btn-primary" %>

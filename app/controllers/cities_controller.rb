@@ -4,7 +4,8 @@ class CitiesController < ApplicationController
   # GET /cities
   # GET /cities.json
   def index
-    @cities = City.all
+    @cities = City.page(params[:page])
+    render :index, locals: { cities: @cities }
   end
 
   # GET /cities/1

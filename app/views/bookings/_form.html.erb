@@ -1,0 +1,92 @@
+<%= form_with(model: booking, local: true) do |form| %>
+
+  <div class="row">
+    <div class="col-lg-6"></div>
+  </div>
+  <div class="content-heading">Reserva</div>
+  <div class="card card-default">
+    <fieldset style="margin: 0; border: 0; padding: 0;" class="card-body">
+      <div class="row ocultar">
+        <div class="col-md-6">
+          <div class="card-body">
+            <div class="form-group">
+              <label>Nombre y Apellido *</label>
+              <%= form.text_field :client_name, class: "form-control", required: "required" %>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label>Correo *</label>
+              <%= form.text_field :client_email, class: "form-control", required: "required" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card-body">
+            <div class="form-group">
+              <label>Llegada</label>
+              <%= form.date_field :date_start, class: "form-control room_name", required: "required",:readonly => true %>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label>Salida </label>
+              <%= form.date_field :date_end, class: "form-control", required: "required",:readonly => true %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="table-responsive table-bordered mb-3">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Tipo de habitación</th>
+            <th>Capacidad</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+            <th class="text-right">Total</th>
+          </tr>
+          </thead>
+          <tbody>
+          <%= form.fields_for :booking_details, booking.booking_details do |f| %>
+            <tr>
+              <td><%= f.label :room_type, :value => room_type(f)%></td>
+              <td><%=f.label :capacity,:value =>room_capacity(f)%></td>
+              <td><%= f.label :quantity, :value => f.object.quantity %></td>
+              <td><%= f.label :price, :value => f.object.subtotal / f.object.quantity %></td>
+              <td><%= f.label :subtotal, :value => f.object.subtotal %></td>
+              <%= f.hidden_field :room_id %>
+              <%= f.hidden_field :quantity %>
+              <%= f.hidden_field :subtotal %>
+              <%= f.hidden_field :booking_id %>
+            </tr>
+          <%end%>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-lg-12 py-2">
+        <div class="row mb-3 align-items-center">
+          <div class="col-9">
+            <div class="text-right h3">TOTAL</div>
+          </div>
+          <div class="col-3">
+            <div class="text-right h3"> <%= form.label :total_amount, :value => form.object.total_amount %></div>
+            <%= form.hidden_field :total_amount %>
+            <%= form.hidden_field :date_creation %>
+            <%= form.hidden_field :booking_state, :value => true %>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+  <fieldset>
+    <div class="form-group row">
+      <div class="col-md-4">
+        <%= form.submit 'Reservar', class: "btn btn-primary" %>
+      </div>
+    </div>
+  </fieldset>
+<% end %>

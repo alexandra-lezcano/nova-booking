@@ -4,7 +4,7 @@
   <%if owner.errors.any? %>
     <div>
       <h2> <%- pluralize(owner.errors.count, "error") %>
-      Error
+        Lo sentimos ha ocurrido un error
       </h2>
       <ul>
         <%owner.errors.full_messages.each do |message| %>
@@ -18,32 +18,31 @@
       <div class="card card-default">
         <div class="card-body text-center">
           <div class="py-4">
-          <%if owner.image.attached? %>
+
+            <%if owner.image.attached? %>
               <div class="py-4 text-center" id="target">
                 <%= image_tag owner.image, alt: "rss fit", height: "150", width:"150"%>
               </div>
-          <%else %>
+            <%else %>
               <div id="target">
-                <img class="img-fluid thumb96" src="<%= image_path('angle/user/perfil.png') %>" alt="Contact" height="150" width="150" />
+                <img class="img-fluid thumb96" src="<%= image_path('angle/user/perfil.png')  %>"  />
               </div>
-           <%end %>
-
-            <p></p>
+            <%end%>
+            <br>
             <div class="form-group row">
-              <div class="col-xl-12 col-md-9 col-8"   >
-                <%= form.file_field :image,multiple: false,  id: "pictureInput", accept: "image/*" %>
+              <div class="form-group col-xl-12 col-md-12 col-12" >
+                <label for="pictureInput" class="btn btn-secondary">
+                  <em class="fas fa-camera mr-2"></em> Cambiar Foto
+                </label>
+                <%= form.file_field :image,multiple: false, class: "d-none", id: "pictureInput"%>
               </div>
-
             </div>
           </div>
-
           <div class="my-3">
             <div class="col-xl-12 col-md-12 col-12">
               <label class="text-bold  text-right">Acerca de mi</label>
               <%= form.text_area :about, class: "form-control" %>
             </div>
-          </div>
-          <div class="text-center">
           </div>
         </div>
       </div>
@@ -107,4 +106,5 @@
     </div>
   </div>
 <% end %>
+
 

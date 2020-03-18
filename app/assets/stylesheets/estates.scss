@@ -29,10 +29,72 @@
     height:130px;
   }
 
-.scroll_facility {
-  padding-top: 2px;
-  overflow-y: scroll;
-  height:130px;
+#estate-title {
+  font-family: Bookman;
+}
+
+.title-section{
+  padding-left: 10%;
+}
+
+.facilities-list {
+  list-style: none;
+  display: flex;
+  flex-flow: column wrap;
+  height: 100%;
+  color: black;
+  font-size: smaller;
+}
+
+.facilities-list li {
+  padding: 3px;
+}
+
+.facility {
+  width: 100%;
+}
+
+.carousel-thumbnails {
+  height: 100%;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0 5px 7px rgba(34, 25, 25, 0.4);
+  border-radius: 10px;
+  -moz-box-shadow: 0 5px 7px rgba(34,25,25,0.4);
+  -webkit-box-shadow: 0 5px 7px rgba(34, 25, 25, 0.4);
+}
+
+.carousel-inner, .carousel-item {
+  height: 100%;
+}
+
+.carousel-indicators {
+  padding-bottom: 2%
+}
+
+#estate-details {
+  padding-top: 3%;
+  padding-bottom: 3%;
+  height: auto;
+  background-color: #EEEEEE;
+}
+
+#facilities-div {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+#facilities-div, #carousel-div {
+  height: 400px;
+}
+
+.details {
+  height: auto;
+}
+
+#description-text{
+  text-align: justify;
+  font-size: large;
 }
 
 .scroll_facility_room {
@@ -40,3 +102,4 @@
   overflow-y: scroll;
   height:300px;
 }
+

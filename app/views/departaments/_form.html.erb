@@ -11,26 +11,26 @@
     </div>
   <% end %>
 
-  <div class="card card-default">
-    <div class="card-body">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card-body height_div">
-            <div class="form-group">
-              <label>Departamento </label>
-              <%= form.text_field :name, class: "form-control", required: "required" %>
-            </div>
+  <div align="center">
+    <div class="col-5">
+      <div class="card card-default">
+        <div class="card-body">
+          <div class="row">
+              <div class="card-body height_div">
+                <div class="form-group">
+                  <label>Descripción </label>
+                  <%= form.text_field :name, class: "form-control", required: "required" %>
+                </div>
+              </div>
           </div>
         </div>
       </div>
+      <fieldset>
+        <div class="form-group row">
+          <%= link_to 'Atras', departaments_path, class: "btn btn-secondary" %>
+          <%= form.submit 'Guardar', class: "btn btn-primary" %>
+        </div>
+      </fieldset>
     </div>
   </div>
-
-  <fieldset>
-    <div class="form-group row">
-      <div class="col-md-6">
-        <%= form.submit 'Guardar', class: "btn btn-primary" %>
-      </div>
-    </div>
-  </fieldset>
 <% end %>

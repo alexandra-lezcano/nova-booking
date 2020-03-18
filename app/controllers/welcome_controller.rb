@@ -21,10 +21,10 @@ class WelcomeController < ApplicationController
 
   def results
     (@filterrific = initialize_filterrific(
-        Estate.only_published,
+        Estate.with_rooms,
         params[:filterrific],
         select_options: {
-            sorted_by: Estate.only_published.options_for_sorted_by,
+            sorted_by: Estate.with_rooms.options_for_sorted_by,
         },
         )) || return
     @estates = @filterrific.find.page(params[:page])

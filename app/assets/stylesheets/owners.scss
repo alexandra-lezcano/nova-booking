@@ -2,8 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .profile-image{
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   background-size: cover;
   display: block;
+}
+[type="file"] {
+  height: 0;
+  overflow: hidden;
+  width: 0;
 }

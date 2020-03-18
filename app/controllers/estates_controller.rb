@@ -29,6 +29,7 @@ class EstatesController < ApplicationController
   def show
     @rooms = @estate.rooms
     @facilities = @estate.facilities_estates
+    @images = @estate.images
   end
 
   # GET /estates/new
@@ -94,6 +95,15 @@ class EstatesController < ApplicationController
       format.html { redirect_to estates_url, notice: 'Propiedad eliminada exitosamente.' }
       format.json { head :no_content }
     end
+  end
+
+  # GET /estates/1/show_detail
+  def show_detail
+    @estate = Estate.find(params[:id])
+    @rooms = @estate.rooms
+    @facilities = @estate.facilities_estates
+    @images = @estate.images
+    render :show_detail, locals: { estate: @estate}
   end
 
   def room

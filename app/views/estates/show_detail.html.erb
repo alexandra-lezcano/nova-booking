@@ -1,0 +1,54 @@
+<div class="container box-placeholder">
+  <!-- TITLES -->
+  <div class="col-12">
+    <div class="row title-section">
+      <div class="col-12 d-flex align-items-center">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="text-info" id="estate-title">
+              <%= @estate.name %>
+            </h1>
+          </div>
+          <div class="col-12 d-flex align-items-center">
+            <em class="mr-1 fa-1x fas fa-map-marker-alt">
+            </em>
+            <span>
+              <%= @estate.address %>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END -->
+  <br>
+  <!-- DESCRIPTION SECTION -->
+  <div class="col-12">
+    <div class="container">
+      <p class="col-12" id="description-text">
+        &emsp;&emsp;<%= + @estate.description %>
+      </p>
+    </div>
+  </div>
+  <!-- END -->
+
+  <!-- ESTATE DETAILS -->
+  <div class="col-12" id="estate-details">
+    <div class="row details">
+      <div class="col-md-7 col-sm-12" id="carousel-div">
+        <%= render partial: "estates/show_images", :locals => { images: @images, h_size: '340px'} %>
+      </div>
+      <div class="col-md-3 col-sm-12 overflow-auto" id="facilities-div">
+        <%= render partial: "estates/facilities_list", :locals => { facilities: @facilities } %>
+      </div>
+    </div>
+  </div>
+  <!-- END -->
+  <!-- Availability table -->
+  <div class="card-body">
+    <br/>
+    <div class="content-heading">Habitaciones</div>
+    <%= render 'room_detail_list', rooms: @rooms %>
+  </div>
+  <%= link_to 'Volver Atras', estates_path, class: "btn btn-secondary" %>
+</div>

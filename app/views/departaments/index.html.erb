@@ -1,30 +1,18 @@
+<div class="content-heading">
+  <div>Departamentos</div>
 
-<h1>Departamentos</h1>
-
-<div class="table-responsive">
-  <table class="table table-bordered table-hover">
-
-  <thead>
-    <tr>
-      <th>Departamento</th>
-      <th colspan="3">Acciones</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @departaments.each do |departament| %>
-      <tr>
-        <td><%= departament.name %></td>
-        <td><%= link_to 'Ver', departament %></td>
-        <td><%= link_to 'Editar', edit_departament_path(departament) %></td>
-        <td><%= link_to 'Eliminar', departament, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
-      </tr>
+  <div class="ml-auto">
+    <%= link_to new_departament_path do %>
+      <button class="btn btn btn-info" title="Nuevo departamento">
+        <i class="fas fa-plus text-light fa-1x"></i>
+      </button>
     <% end %>
-  </tbody>
-</table>
+  </div>
 </div>
 
-
-<br>
-
-<%= link_to 'Nuevo Departamento', new_departament_path, :class => "mb-1 btn btn-primary" %>
+<div id="results" align="center">
+  <%= render(
+          partial: 'departaments/list',
+          locals: {departaments: departaments}
+      ) %>
+</div>

@@ -1,42 +1,47 @@
-<div class="container-fluid box-placeholder">
+<div class="container box-placeholder">
   <!-- TITLES -->
   <div class="col-12">
-    <div class="row">
-      <div class="col-md-12 ">
-        <h1><%= @estate.name %></h1>
+    <div class="row title-section">
+      <div class="col-12 d-flex align-items-center">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="text-info" id="estate-title">
+              <%= @estate.name %>
+            </h1>
+          </div>
+          <div class="col-12 d-flex align-items-center">
+            <em class="mr-1 fa-1x fas fa-map-marker-alt">
+            </em>
+            <span>
+              <%= @estate.address %>
+            </span>
+          </div>
+        </div>
       </div>
-      <div class="col-md-12">
-        <div><%= @estate.address %></div>
-      </div>
+    </div>
+  </div>
+  <!-- END -->
+  <br>
+  <!-- DESCRIPTION SECTION -->
+  <div class="col-12">
+    <div class="container">
+      <p class="col-12" id="description-text">
+        &emsp;&emsp;<%= + @estate.description %>
+      </p>
     </div>
   </div>
   <!-- END -->
 
   <!-- ESTATE DETAILS -->
-  <div class="col-12">
-    <div class="row">
-      <div class="col-md-4 col-sm-12">
-
+  <div class="col-12" id="estate-details">
+    <div class="row details">
+      <div class="col-md-7 col-sm-12" id="carousel-div">
+        <%= render partial: "estates/show_images", :locals => { images: @images, h_size: '340px'} %>
       </div>
-      <div class="col-md-8 col-sm-12">
-        <%= render partial: "estates/show_images", :locals => { images: @estate.images, h_size: '300px'} %>
+      <div class="col-md-3 col-sm-12 overflow-auto" id="facilities-div">
+        <%= render partial: "estates/facilities_list", :locals => { facilities: @facilities } %>
       </div>
     </div>
-  </div>
-  <!-- END -->
-
-  <!-- DESCRIPTION SECTION -->
-  <div class="col-12">
-    <dl class="row">
-      <dt class="col-sm-3">Descripcion:</dt>
-      <dd class="col-sm-9">Es un excelente hotel.</dd>
-    </dl>
-  </div>
-  <!-- END -->
-
-  <!--  -->
-  <div class="row" style="background-color: #ff902b">
-
   </div>
   <!-- END -->
   <!-- Availability table -->
