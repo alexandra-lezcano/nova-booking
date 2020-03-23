@@ -1,51 +1,54 @@
 <%= form_with(model: booking, local: true) do |form| %>
 
-  <div class="row">
-    <div class="col-lg-6"></div>
-  </div>
   <div class="content-heading">Reserva</div>
+  <div align="center">
+    <div class="col-7">
   <div class="card card-default">
     <fieldset style="margin: 0; border: 0; padding: 0;" class="card-body">
-      <div class="row ocultar">
-        <div class="col-md-6">
+      <div class="row ocultar" align="left">
+        <div class="col-md-8">
           <div class="card-body">
-            <div class="form-group">
+            <div class="form-group col-10">
               <label>Nombre y Apellido *</label>
               <%= form.text_field :client_name, class: "form-control", required: "required" %>
             </div>
           </div>
           <div class="card-body">
-            <div class="form-group">
+            <div class="form-group col-10">
               <label>Correo *</label>
               <%= form.text_field :client_email, class: "form-control", required: "required" %>
             </div>
           </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-3">
           <div class="card-body">
-            <div class="form-group">
-              <label>Llegada</label>
+            <div class="form-group  ">
+              <label>Desde</label>
               <%= form.date_field :date_start, class: "form-control room_name", required: "required",:readonly => true %>
             </div>
           </div>
           <div class="card-body">
             <div class="form-group">
-              <label>Salida </label>
+              <label>Hasta </label>
               <%= form.date_field :date_end, class: "form-control", required: "required",:readonly => true %>
             </div>
           </div>
         </div>
       </div>
-      <div class="table-responsive table-bordered mb-3">
+
+      <br>
+
+      <div class="col-11">
+
         <table class="table">
-          <thead>
+          <thead class="table-primary">
           <tr>
             <th>Tipo de habitación</th>
             <th>Capacidad</th>
             <th>Cantidad</th>
             <th>Precio Unitario</th>
-            <th class="text-right">Total</th>
+            <th>Subtotal</th>
           </tr>
           </thead>
           <tbody>
@@ -62,31 +65,48 @@
               <%= f.hidden_field :booking_id %>
             </tr>
           <%end%>
+          <tr>
+            <td><b>Total:</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+              <b><%= number_to_currency( form.object.total_amount, :unit => "Gs", :separator => ".", :precision => 0) %></b>
+              <%= form.hidden_field :total_amount %>
+              <%= form.hidden_field :date_creation %>
+              <%= form.hidden_field :booking_state, :value => true %>
+            </td>
+          </tr>
           </tbody>
         </table>
       </div>
-      <div class="col-lg-12 py-2">
+
+      <!--div class="col-lg-12 py-2">
         <div class="row mb-3 align-items-center">
           <div class="col-9">
             <div class="text-right h3">TOTAL</div>
           </div>
           <div class="col-6">
-            <div class="text-right h3"> <%= number_to_currency( form.object.total_amount, :unit => "Gs", :separator => ".", :precision => 0) %></div>
-            <%= form.hidden_field :total_amount %>
-            <%= form.hidden_field :date_creation %>
-            <%= form.hidden_field :booking_state, :value => true %>
+            <div class="text-right h3"> <%#= number_to_currency( form.object.total_amount, :unit => "Gs", :separator => ".", :precision => 0) %></div>
+            <%#= form.hidden_field :total_amount %>
+            <%#= form.hidden_field :date_creation %>
+            <%#= form.hidden_field :booking_state, :value => true %>
           </div>
+        </div>
+      </div-->
+    </fieldset>
+
+
+    <fieldset>
+      <div align="right">
+        <div class="col-md-4">
+          <%= form.submit 'Reservar', class: "btn btn-primary" %>
         </div>
       </div>
     </fieldset>
   </div>
+  </div>
+  </div>
 
 
-  <fieldset>
-    <div class="form-group row">
-      <div class="col-md-4">
-        <%= form.submit 'Reservar', class: "btn btn-primary" %>
-      </div>
-    </div>
-  </fieldset>
 <% end %>
