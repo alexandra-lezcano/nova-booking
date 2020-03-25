@@ -1,78 +1,131 @@
-  <div class="row">
-    <div class="col-lg-6"></div>
-  </div>
-  <div class="content-heading">Reserva</div>
-  <div class="card card-default">
-    <fieldset style="margin: 0; border: 0; padding: 0;" class="card-body">
-      <div class="row ocultar">
-        <div class="col-md-6">
-          <div class="card-body">
-            <div class="form-group">
-              <label>Nombre y Apellido</label>
-              <br>
-              <label><%=booking.client_name%></label>
+<div class="content-heading">Reserva</div>
+
+<div align="center">
+  <div class="col-7">
+    <div class="card card-default">
+      <fieldset style="margin: 0; border: 0; padding: 0;" class="card-body">
+
+        <!-- DATOS DEL HOTEL -->
+        <div class="col-12" align="left">
+          <div class="row title-section">
+            <div class="col-12 d-flex align-items-center">
+              <div class="row">
+                <div class="col-12">
+                  <h1 class="text-info" id="estate-title">
+                    <%= estate.name %>
+                  </h1>
+                </div>
+                <div class="col-12 d-flex align-items-center">
+                  <em class="mr-1 fa-1x fas fa-map-marker-alt">
+                  </em>
+                  <span>
+                    <%= estate.address %>
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="card-body">
-            <div class="form-group">
-              <label>Correo </label>
-              <br>
-              <label><%=booking.client_email%></label>
+        </div>
+        <!-- END -->
+        <br>
+        <!-- DESCRIPCION HOTEL -->
+        <div class="col-12" align="left">
+          <div class="container">
+            <p class="col-12" id="description-text">
+              &emsp;&emsp;<%= estate.description %>
+            </p>
+          </div>
+        </div>
+        <!-- END -->
+
+        <!-- ESTATE DETAILS -->
+        <div class="col-12" id="estate-details" align="left">
+          <div class="row details">
+            <div class="col-md-8 col-sm-12" id="carousel-div">
+              <%= render partial: "estates/show_images", :locals => { images: estate.images, h_size: '340px'} %>
+            </div>
+            <div class="col-md-4 col-sm-12" id="facilities-div">
+              <div class="row">
+                <div class="col-12 facilities-title">
+                  <h3>Comodidades</h3>
+                </div>
+                <div class="col-12 overflow-auto facilities-list-div">
+                  <%= render partial: "estates/facilities_list", :locals => { facilities: estate.facilities_estates } %>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+        <!-- END -->
+
+        <br>
+        <div class="col-11" align="left">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <p class="lead">
+                <b><%=booking.client_name%></b>
+              </p>
+            </li>
+            <li class="list-group-item">
+                <b>Correo: </b><%=booking.client_email%>
+            </li>
+            <li class="list-group-item">
+                <b>Desde: </b><%=booking.date_start.strftime("%d-%m-%Y") %>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <b>Hasta: </b><%=booking.date_end.strftime("%d-%m-%Y") %>
+            </li>
+            <li class="list-group-item"></li>
+          </ul>
         </div>
 
-        <div class="col-md-6">
-          <div class="card-body">
-            <div class="form-group">
-              <label>Llegada</label>
-              <br>
-              <label><%=booking.date_start.strftime("%Y-%m-%d") %></label>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="form-group">
-              <label>Salida </label>
-              <br>
-             <label><%=booking.date_end.strftime("%Y-%m-%d")%></label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="table-responsive table-bordered mb-3">
-        <table class="table">
-          <thead>
-          <tr>
-            <th>Tipo de habitación</th>
-            <th>Capacidad</th>
-            <th>Cantidad</th>
-            <th>Precio Unitario</th>
-            <th class="text-right">Total</th>
-          </tr>
-          </thead>
-          <tbody>
-          <% booking.booking_details.each do |f| %>
-            <tr>
-              <td><%=Room.room_type_for(f.room_id)%></td>
-              <td><%=Room.room_capacity_for(f.room_id)%></td>
-              <td><%=f.quantity %></td>
-              <td><%= number_to_currency(f.subtotal / f.quantity, :unit => "Gs", :separator => ".", :precision => 0)%></td>
-              <td><%= number_to_currency(f.subtotal, :unit => "Gs", :separator => ".", :precision => 0) %></td>
+
+        <br>
+
+        <div class="col-11">
+
+          <table class="table">
+            <thead class="table-primary">
+            <tr align="center">
+              <th>Tipo de habitación</th>
+              <th>Capacidad</th>
+              <th>Cantidad</th>
+              <th class="text-right">Precio Unitario</th>
+              <th class="text-right">Subtotal</th>
+              <th>Ver más</th>
             </tr>
-          <%end%>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-lg-12 py-2">
-        <div class="row mb-3 align-items-center">
-          <div class="col-9">
-            <div class="text-right h3">TOTAL</div>
-          </div>
-          <div class="col-3">
-            <div class="text-right h3"> <%=number_to_currency(booking.total_amount, :unit => "Gs", :separator => ".", :precision => 0) %></div>
-
-          </div>
+            </thead>
+            <tbody>
+            <% booking.booking_details.each do |f| %>
+              <tr>
+                <td>
+                  <%=Room.room_type_for(f.room_id)%>
+                </td>
+                <td class="text-center"><%=Room.room_capacity_for(f.room_id)%></td>
+                <td class="text-center"><%=f.quantity %></td>
+                <td class="text-right"><%= number_to_currency(f.subtotal / f.quantity, :unit => "Gs", :separator => ".", :precision => 0)%></td>
+                <td class="text-right"><%= number_to_currency(f.subtotal, :unit => "Gs", :separator => ".", :precision => 0) %></td>
+                <td class="text-center">
+                  <%= link_to room_estate_path(f.room_id), class: 'btn btn-link', remote: true do %>
+                    <button class="btn btn-link text-primary" title="Ver"><i class="fas fa-eye"></i></button>
+                  <% end %>
+                </td>
+              </tr>
+            <%end%>
+            <tr>
+              <td class="text-center"><b>Total:</b></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="text-right">
+                <b><%=number_to_currency(booking.total_amount, :unit => "Gs", :separator => ".", :precision => 0) %></b>
+              </td>
+            </tr>
+            </tbody>
+          </table>
         </div>
-      </div>
-    </fieldset>
+      </fieldset>
+    </div>
   </div>
+</div>
+
+<div id="room-content"></div>

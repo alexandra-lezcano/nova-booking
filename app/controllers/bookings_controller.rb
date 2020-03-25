@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    @estate = Estate.find(Room.find(@booking.booking_details[0].room_id).estate_id)
   end
 
   def new

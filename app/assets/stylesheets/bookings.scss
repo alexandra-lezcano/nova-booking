@@ -1,3 +1,104 @@
-// Place all the styles related to the Bookings controller here.
+// Place all the styles related to the Estates controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// You can use Sass (SCSS) here: https://sass-lang.com/
+// --- Tags Input
+//= require bootstrap-tagsinput/dist/bootstrap-tagsinput
+// --- Slider Ctrl
+//= require bootstrap-slider/dist/css/bootstrap-slider.min
+// --- Chosen
+//= require chosen-js/chosen
+// --- Dropzone
+//= require dropzone/dist/basic
+//= require dropzone/dist/dropzone
+// --- ColorPicker
+//= require bootstrap-colorpicker/dist/css/bootstrap-colorpicker
+// --- CropperCss
+//= require cropper/dist/cropper.css
+
+.height_div{
+  height:300px;
+}
+.scroll_images {
+  padding-top: 2px;
+  overflow-x: scroll;
+  height:130px;
+}
+
+#estate-title {
+  font-family: PT Sans Narrow;
+}
+
+.title-section{
+  padding-left: 1.5%;
+  padding-right: 4%;
+}
+
+.carousel-thumbnails {
+  height: 100%;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0 5px 7px rgba(34, 25, 25, 0.4);
+  border-radius: 10px;
+  -moz-box-shadow: 0 5px 7px rgba(34,25,25,0.4);
+  -webkit-box-shadow: 0 5px 7px rgba(34, 25, 25, 0.4);
+}
+
+.carousel-inner, .carousel-item {
+  height: 100%;
+}
+
+.carousel-indicators {
+  padding-bottom: 2%
+}
+
+#estate-details {
+  padding-top: 3%;
+  padding-bottom: 3%;
+  height: auto;
+  background-color: #EEEEEE;
+}
+
+.details {
+  height: auto;
+}
+
+#facilities-div {
+  padding-left: 10%;
+}
+
+#facilities-div, #carousel-div {
+  height: 400px;
+}
+
+.facilities-list {
+  padding-left: 0;
+  list-style: none;
+  height: 100%;
+  color: black;
+  font-size: large;
+}
+
+.facility {
+  padding: 3px;
+}
+
+.facilities-title {
+  height: 40px;
+  font-family: PT Sans Narrow;
+}
+
+.facilities-list-div {
+  height: 360px;
+}
+
+#description-text{
+  text-align: justify;
+  font-size: large;
+}
+
+.scroll_facility_room {
+  padding-top: 2px;
+  overflow-y: scroll;
+  height:300px;
+}
+

@@ -10,13 +10,21 @@
           <div class="card-body">
             <div class="form-group col-10">
               <label>Nombre y Apellido *</label>
-              <%= form.text_field :client_name, class: "form-control", required: "required" %>
+              <% if user_signed_in?%>
+                <%= form.text_field :client_name, class: "form-control", required: "required", value: "Pamela Tamay" %>
+              <%else %>
+                <%= form.text_field :client_name, class: "form-control", required: "required" %>
+              <%end %>
             </div>
           </div>
           <div class="card-body">
             <div class="form-group col-10">
               <label>Correo *</label>
-              <%= form.text_field :client_email, class: "form-control", required: "required" %>
+              <% if user_signed_in?%>
+                <%= form.text_field :client_email, class: "form-control", required: "required", value: current_user.email,:readonly => true %>
+              <%else %>
+                <%= form.text_field :client_email, class: "form-control", required: "required" %>
+              <%end %>
             </div>
           </div>
         </div>
@@ -25,7 +33,7 @@
           <div class="card-body">
             <div class="form-group  ">
               <label>Desde</label>
-              <%= form.date_field :date_start, class: "form-control room_name", required: "required",:readonly => true %>
+              <%= form.date_field :date_start, class: "form-control", required: "required",:readonly => true %>
             </div>
           </div>
           <div class="card-body">
