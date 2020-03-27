@@ -97,7 +97,9 @@
             <tbody>
             <% booking.booking_details.each do |f| %>
               <tr>
-                <td><%=Room.room_type_for(f.room_id)%></td>
+                <td>
+                  <%=Room.room_type_for(f.room_id)%>
+                </td>
                 <td class="text-center"><%=Room.room_capacity_for(f.room_id)%></td>
                 <td class="text-center"><%=f.quantity %></td>
                 <td class="text-right"><%= number_to_currency(f.subtotal / f.quantity, :unit => "Gs", :separator => ".", :precision => 0)%></td>

@@ -1,6 +1,6 @@
 class EstatesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_estate, only: %i[show edit update destroy]
-  before_action :authenticate_user! , except: [:show]
 
   # GET /estates
   # GET /estates.json

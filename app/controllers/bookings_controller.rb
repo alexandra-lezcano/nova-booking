@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user! , except: :show
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user! , except: [:new, :create, :show]
 
   def index
     @bookings = Booking.all
@@ -20,7 +20,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    byebug
     @booking = Booking.new(booking_params)
 
     respond_to do |format|
