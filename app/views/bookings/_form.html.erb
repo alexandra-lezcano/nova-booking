@@ -1,92 +1,94 @@
 <%= form_with(model: booking, local: true) do |form| %>
 
-  <div class="row">
-    <div class="col-lg-6"></div>
-  </div>
   <div class="content-heading">Reserva</div>
-  <div class="card card-default">
-    <fieldset style="margin: 0; border: 0; padding: 0;" class="card-body">
-      <div class="row ocultar">
-        <div class="col-md-6">
-          <div class="card-body">
-            <div class="form-group">
-              <label>Nombre y Apellido *</label>
-              <%= form.text_field :client_name, class: "form-control", required: "required" %>
+  <div align="center">
+    <div class="col-7">
+      <div class="card card-default">
+        <fieldset style="margin: 0; border: 0; padding: 0;" class="card-body">
+          <div class="row ocultar" align="left">
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="form-group col-10">
+                  <label>Nombre y Apellido *</label>
+                  <%= form.text_field :client_name,value: (current_user.username if user_signed_in?), class: "form-control", required: "required",:readonly => (true if user_signed_in?)%>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="form-group col-10">
+                  <label>Correo *</label>
+                  <%= form.text_field :client_email,value: (current_user.email if user_signed_in?),class: "form-control", required: "required" ,:readonly => (true if user_signed_in?)%>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="card-body">
-            <div class="form-group">
-              <label>Correo *</label>
-              <%= form.text_field :client_email, class: "form-control", required: "required" %>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-md-6">
-          <div class="card-body">
-            <div class="form-group">
-              <label>Llegada</label>
-              <%= form.date_field :date_start, class: "form-control room_name", required: "required",:readonly => true %>
+            <div class="col-md-3">
+              <div class="card-body">
+                <div class="form-group  ">
+                  <label>Desde</label>
+                  <%= form.date_field :date_start, class: "form-control", required: "required",:readonly => true %>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label>Hasta </label>
+                  <%= form.date_field :date_end, class: "form-control", required: "required",:readonly => true %>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="card-body">
-            <div class="form-group">
-              <label>Salida </label>
-              <%= form.date_field :date_end, class: "form-control", required: "required",:readonly => true %>
+
+          <br>
+
+          <div class="col-11">
+
+            <table class="table">
+              <thead class="table-primary">
+              <tr>
+                <th>Tipo de habitación</th>
+                <th>Capacidad</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Subtotal</th>
+              </tr>
+              </thead>
+              <tbody>
+              <%= form.fields_for :booking_details, booking.booking_details do |f| %>
+                <tr>
+                  <td><%=Room.room_type_for(f.object.room_id)%></td>
+                  <td><%=Room.room_capacity_for(f.object.room_id)%></td>
+                  <td><%=f.object.quantity %></td>
+                  <td><%=number_to_currency(f.object.subtotal / f.object.quantity , :unit => "Gs", :separator => ".", :precision => 0) %></td>
+                  <td><%=number_to_currency( f.object.subtotal, :unit => "Gs", :separator => ".", :precision => 0) %></td>
+                  <%= f.hidden_field :room_id %>
+                  <%= f.hidden_field :quantity %>
+                  <%= f.hidden_field :subtotal %>
+                  <%= f.hidden_field :booking_id %>
+                </tr>
+              <%end%>
+              <tr>
+                <td><b>Total:</b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                  <b><%= number_to_currency( form.object.total_amount, :unit => "Gs", :separator => ".", :precision => 0) %></b>
+                  <%= form.hidden_field :total_amount %>
+                  <%= form.hidden_field :date_creation %>
+                  <%= form.hidden_field :booking_state, :value => true %>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </fieldset>
+        <fieldset>
+          <div align="right">
+            <div class="col-md-4">
+              <%= form.submit 'Reservar', class: "btn btn-primary" %>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="table-responsive table-bordered mb-3">
-        <table class="table">
-          <thead>
-          <tr>
-            <th>Tipo de habitación</th>
-            <th>Capacidad</th>
-            <th>Cantidad</th>
-            <th>Precio Unitario</th>
-            <th class="text-right">Total</th>
-          </tr>
-          </thead>
-          <tbody>
-          <%= form.fields_for :booking_details, booking.booking_details do |f| %>
-            <tr>
-              <td><%=Room.room_type_for(f.object.room_id)%></td>
-              <td><%=Room.room_capacity_for(f.object.room_id)%></td>
-              <td><%=f.object.quantity %></td>
-              <td><%=number_to_currency(f.object.subtotal / f.object.quantity , :unit => "Gs", :separator => ".", :precision => 0) %></td>
-              <td><%=number_to_currency( f.object.subtotal, :unit => "Gs", :separator => ".", :precision => 0) %></td>
-              <%= f.hidden_field :room_id %>
-              <%= f.hidden_field :quantity %>
-              <%= f.hidden_field :subtotal %>
-              <%= f.hidden_field :booking_id %>
-            </tr>
-          <%end%>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-lg-12 py-2">
-        <div class="row mb-3 align-items-center">
-          <div class="col-9">
-            <div class="text-right h3">TOTAL</div>
-          </div>
-          <div class="col-6">
-            <div class="text-right h3"> <%= number_to_currency( form.object.total_amount, :unit => "Gs", :separator => ".", :precision => 0) %></div>
-            <%= form.hidden_field :total_amount %>
-            <%= form.hidden_field :date_creation %>
-            <%= form.hidden_field :booking_state, :value => true %>
-          </div>
-        </div>
-      </div>
-    </fieldset>
-  </div>
-
-
-  <fieldset>
-    <div class="form-group row">
-      <div class="col-md-4">
-        <%= form.submit 'Reservar', class: "btn btn-primary" %>
+        </fieldset>
       </div>
     </div>
-  </fieldset>
+  </div>
 <% end %>
