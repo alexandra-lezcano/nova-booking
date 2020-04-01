@@ -21,98 +21,93 @@
         </div>
     </div>
     <div class="jumbotron jumbotron-fluid">
-      <h4>&emsp;&emsp; Filtrar por:</h4>
+      <h4>&emsp; Filtrar por:</h4>
       <hr class="text-primary">
       <!--FILTRO POR FECHA-->
       <h5>Tu presupuesto (Gs.)</h5>
       <div class="form-row">
           <div class="col-6">
-            <%= f.number_field :price_min, id:"price_min", class: "form-control number", type: "text", placeholder:"Mínimo Gs." %>
+            <%= f.number_field :price_min, id:"price_min", class: "filterrific-periodically-observed form-control number", type: "text", placeholder:"Mínimo Gs." %>
           </div>
           <div class="col-6">
-            <%= f.number_field :price_max, id:"price_max", class: "form-control number validame", type: "text", placeholder:"Máximo Gs." %>
+            <%= f.number_field :price_max, id:"price_max", class: "form-control number", type: "text", placeholder:"Máximo Gs." %>
           </div>
       </div>
-      <div align="right" style="padding-top: 5px">
-        <%= button_tag( :class => 'btn btn-primary btn-sm guardar') do %>
-          <i class="fas fa-search"></i>
-        <% end %>
-      </div>
+
       <!--FIN-->
       <hr>
       <!--FILTRO POR TIPO DE PROPIEDAD-->
+      <h5>Tipo de alojamiento </h5>
+      <div class="form-group col-12">
+        <div class="row has-search d-flex align-items-center results-block">
+          <%= f.select :with_estate_type, filterrific.select_options[:with_estate_type],
+                       {:include_blank => '- Todos -'},
+                       {:class => 'filterrific-periodically-observed form-control'} %>
+        </div>
+      </div>
       <!--FIN-->
+      <hr>
     </div>
-  <% end %>
+  <%end %>
 </div>
 <script>
-$(function() {
-    var startDate = new Date();
-    var FromEndDate = new Date();
-    var ToEndDate = new Date();
-    ToEndDate.setDate(ToEndDate.getDate()+365);
-    FromEndDate.setDate(FromEndDate.getDate()+365);
-    $('#with_date_gte').datepicker({
-        weekStart: 1,
-        startDate: new Date(),
-        endDate: FromEndDate, 
-        autoclose: true,
-        orientation: "bottom auto",
-        format: "yyyy/mm/dd",
-        language: 'es',
-        todayHighlight: true
-    })
-        .on('changeDate', function(selected){
-            startDate = new Date(selected.date.valueOf());
-            startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
-            $('#with_date_lte').datepicker('setStartDate', startDate);
-        }); 
-    $('#with_date_lte')
-        .datepicker({
-            weekStart: 1,
-            startDate: startDate,
-            endDate: ToEndDate,
-            autoclose: true,
-            orientation: "bottom auto",
-            format: "yyyy/mm/dd",
-            language: 'es',
-            todayHighlight: true
-    })
-        .on('changeDate', function(selected){
-            FromEndDate = new Date(selected.date.valueOf());
-            FromEndDate.setDate(FromEndDate.getDate(new Date(selected.date.valueOf())));
-            $('#with_date_gte').datepicker('setEndDate', FromEndDate);
-        });
-    $(window).on('resize', function() {
-        if($(window).width() < 1060) {
-            $('#results-body').removeClass('results-section');
-            $('#results-body').addClass('results-section2');
-        }else{
-            $('#results-body').addClass('results-section');
-            $('#results-body').removeClass('results-section2');
-        }
-    });
-    $(".number").each(function (ind, input) {
-        if(typeof input.value === "string"){
-            let n = input.value.replace(/[\D\s\._\-]+/g, "");
-            n = n?parseInt(n, 10):0;
-            let num = (n === 0)?"":n.toLocaleString("en-US");
-            input.value = num.split(",").join(".");
-        }
-    });
-    $(".number").on("keyup", function(event ) {
-        let input = $(event.target).val();
-        input = input.replace(/[\D\s\._\-]+/g, "");
-        input = input?parseInt(input, 10):0;
-        $(event.target).val(function () {
-            let num = (input === 0)?"":input.toLocaleString("en-US");
-            return num.split(",").join(".");
-        });
-    });
-    $("#manual_filterrific_form").on("submit", function(evt){
-        $(".number").each(function (ind, input) {
-            input.value = input.value.split(".").join("");
-        });
-    });
-});
+    if($("#price_max").val() == '1000000000'){
+        $("#price_max").val('');
+    }
+    if($("#price_min").val() == '0'){
+        $("#price_min").val('');
+    }
+  $(function() {
+      var startDate = new Date();
+      var FromEndDate = new Date();
+      var ToEndDate = new Date();
+      ToEndDate.setDate(ToEndDate.getDate()+365);
+      FromEndDate.setDate(FromEndDate.getDate()+365);
+      $('#with_date_gte').datepicker({
+          weekStart: 1,
+          startDate: new Date(),
+          endDate: FromEndDate,
+          autoclose: true,
+          orientation: "bottom auto",
+          format: "yyyy/mm/dd",
+          language: 'es',
+          todayHighlight: true
+      })
+          .on('changeDate', function(selected){
+              startDate = new Date(selected.date.valueOf());
+              startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
+              $('#with_date_lte').datepicker('setStartDate', startDate);
+          });
+      $('#with_date_lte')
+          .datepicker({
+              weekStart: 1,
+              startDate: startDate,
+              endDate: ToEndDate,
+              autoclose: true,
+              orientation: "bottom auto",
+              format: "yyyy/mm/dd",
+              language: 'es',
+              todayHighlight: true
+      })
+          .on('changeDate', function(selected){
+              FromEndDate = new Date(selected.date.valueOf());
+              FromEndDate.setDate(FromEndDate.getDate(new Date(selected.date.valueOf())));
+              $('#with_date_gte').datepicker('setEndDate', FromEndDate);
+          });
+      $(window).on('resize', function() {
+          if($(window).width() < 1060) {
+              $('#results-body').removeClass('results-section');
+              $('#results-body').addClass('results-section2');
+          }else{
+              $('#results-body').addClass('results-section');
+              $('#results-body').removeClass('results-section2');
+          }
+      });
+
+      $("#manual_filterrific_form").on("submit", function(evt){
+          $(".number").each(function (ind, input) {
+              input.value = input.value.split(".").join("");
+          });
+      });
+  });
 </script>
