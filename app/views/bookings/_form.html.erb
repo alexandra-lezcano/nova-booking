@@ -44,11 +44,8 @@
               </div>
             </div>
           </div>
-
           <br>
-
           <div class="col-11">
-
             <table class="table">
               <thead class="table-primary">
               <tr>
@@ -74,23 +71,31 @@
                 </tr>
               <%end%>
               <tr>
-                <td><b>Total:</b></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td>
-                  <b><%= number_to_currency( form.object.total_amount, :unit => "Gs", :separator => ".", :precision => 0) %></b>
+                  <b><%= number_to_currency( form.object.total_amount / diff, :unit => "Gs", :separator => ".", :precision => 0) %></b>
+                </td>
+              </tr>
+              <tr class="thead-light">
+                <th><b>Total: <%=diff%> noche<%=plural_arg%></b></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>
+                  <b> <%= number_to_currency( form.object.total_amount, :unit => "Gs", :separator => ".", :precision => 0) %></b>
                   <%= form.hidden_field :total_amount %>
                   <%= form.hidden_field :date_creation %>
-                </td>
+                </th>
               </tr>
               </tbody>
             </table>
           </div>
         </fieldset>
-
-
         <fieldset>
+          <br/>
           <div align="right">
             <div class="col-md-4">
               <%= form.submit 'Reservar', class: "btn btn-primary" %>

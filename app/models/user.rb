@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :name, presence: :true
   validates :last_name, presence: :true
   validates :username, presence: :true, uniqueness: { case_sensitive: false }
+  validates_format_of :username, with: /\A[a-zA-Z0-9]+\z/, message: "solo debe contener letras y numeros", :multiline => true
   validates_length_of :username, minimum: 5, maximum: 20, allow_blank: true
   validates_length_of :name, minimum: 2, maximum: 50, allow_blank: true
   validates_length_of :last_name, minimum: 2, maximum: 50, allow_blank: true
@@ -25,6 +26,6 @@ class User < ApplicationRecord
   def self.find_for_database_authentication warden_conditions
     conditions = warden_conditions.dup
     login = conditions.delete(:login)
-    where(conditions).where(["username = :value OR lower(email) = :value", {value: login.strip.downcase}]).first
+    where(conditions).where(["username = :value OR lower(email) = lower(:value)", { :value => login }]).first
   end
 end

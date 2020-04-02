@@ -21,9 +21,9 @@
               <tr>
                 <td class="text-center"><%= r.description %></td>
                 <td class="text-center"><%= r.room_type.text %></td>
-                <td class="text-center" data-toggle="tooltip" data-placement="left" title="Capacidad: <%= r.capacity %>">,
+                <td class="text-center" data-toggle="tooltip" data-placement="left" title="Capacidad: <%= r.capacity %>">
                   <% if r.capacity.to_i > 5 %>
-                    <em class="fas fa-users"> 5 +</em>
+                    <em class="fa-lg fas fa-users"> 5 +</em>
                   <% else %>
                     <% r.capacity.to_i.times do %>
                       <em class="fa-lg fas fa-user"></em>

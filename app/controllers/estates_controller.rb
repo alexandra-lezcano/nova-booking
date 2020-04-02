@@ -35,6 +35,10 @@ class EstatesController < ApplicationController
         },
         )) || return
     @estates = @filterrific.find.page(params[:page])
+    date_from_formatted = Date.parse(params[:from])
+    date_to_formatted = Date.parse(params[:to])
+    @diff = (date_to_formatted.to_date - date_from_formatted.to_date).to_i
+    @plural_arg = (@diff > 1)? "s":" "
     date_from = params[:from]
     date_to = params[:to]
     price_max = ((params[:price_max] != '') && (params[:price_max] != nil)) ? params[:price_max] : 1000000000 #to do

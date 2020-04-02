@@ -26,7 +26,10 @@ class Booking < ApplicationRecord
         UserMailer.new_booking_owner(booking).deliver_now
     end
 
-    def estate(booking)
+    def self.estate(booking)
         Estate.find(Room.find(booking.booking_details[0].room_id).estate_id)
+    end
+    def self.diff(booking)
+        return diff = (booking.date_end.to_date -  booking.date_start.to_date).to_i
     end
 end

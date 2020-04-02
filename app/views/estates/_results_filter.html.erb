@@ -37,7 +37,7 @@ $(function() {
     $('#with_date_gte').datepicker({
         weekStart: 1,
         startDate: new Date(),
-        endDate: FromEndDate, 
+        endDate: FromEndDate,
         autoclose: true,
         orientation: "bottom auto",
         format: "yyyy/mm/dd",
@@ -48,7 +48,7 @@ $(function() {
             startDate = new Date(selected.date.valueOf());
             startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
             $('#with_date_lte').datepicker('setStartDate', startDate);
-        }); 
+        });
     $('#with_date_lte')
         .datepicker({
             weekStart: 1,
@@ -73,6 +73,6 @@ $(function() {
             let num = (input === 0)?"":input.toLocaleString("en-US");
             return num.split(",").join(".");
         });
-    });   
+    });
   });
 </script>

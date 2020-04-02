@@ -279,3 +279,8 @@ en:
       facility_type:
         estate: "Propiedad"
         room: "Habitacion"
+    estate:
+      estate_type:
+        one_apartment: "Apartamento"
+        home: "Casa"
+        hotel: "Hotel"

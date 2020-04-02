@@ -1,4 +1,5 @@
 class Room < ApplicationRecord
+  acts_as_paranoid
   belongs_to :estate
 
   has_many :facilities_rooms
