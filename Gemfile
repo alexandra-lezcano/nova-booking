@@ -90,6 +90,10 @@ gem 'has_secure_token'
 gem 'cancancan'
 gem 'rolify'
 
+
+gem 'selectize-rails'
+
 gem 'premailer-rails'
 gem 'bootstrap-email'
 gem 'paranoia'
+

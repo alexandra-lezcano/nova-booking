@@ -1,4 +1,4 @@
 <h1>Se ha solicitado la reserva satifactoriamente</h1>
 Para confirmar su reserva vaya al siguiente enlace <%=link_to "confirmación de reserva", root_url + "bookings/confirmation/?confirmation_token=" + @booking.confirmation_token %>
 <h1>Se adjunta la planilla con las especificaciones de su reserva</h1>
-<%= render 'bookings/form_show', booking: @booking, estate: @estate %>
+<%= render 'bookings/form_show', booking: @booking, estate: @estate,diff: @diff, plural_arg: @plural_arg %>

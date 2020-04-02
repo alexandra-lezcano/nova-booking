@@ -25,7 +25,12 @@
  *= require animate.css/animate.min
  * ---- Whirl (spinners)
  *= require whirl/dist/whirl
+
+ *= require selectize
+ *= require selectize.default
+
  *= require bootstrap-slider
+
  */
  //= require bootstrap-datepicker3
 @import 'components/_filterrific_filter';

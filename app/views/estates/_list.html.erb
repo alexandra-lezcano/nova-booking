@@ -31,9 +31,9 @@
             <%= link_to show_detail_estate_path(estate.id) do %>
               <button class="btn btn-link text-primary" title="Ver"><i class="fas fa-eye"></i></button>
             <% end %>
-            <%#= link_to edit_estate_path(estate) do %>
+            <%= link_to edit_estate_path(estate) do %>
               <button class="btn btn-link text-primary" title="Editar"><i class="fas fa-edit"></i></button>
-            <%# end %>
+            <% end %>
             <%= link_to estate, method: :delete, data: {confirm: 'Estás seguro?'} do %>
               <button class="btn btn-link text-danger" title="Eliminar"><i class="fas fa-trash-alt"></i></button>
             <% end %>

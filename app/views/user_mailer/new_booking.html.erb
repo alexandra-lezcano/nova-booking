@@ -4,5 +4,4 @@
 <br>
 <h1>Puede acceder a su reserva a traves del siguiente enlace <%=link_to "mi reserva", root_url + "bookings/" + @booking.id.to_s%></h1>
 <h1>Se adjunta la planilla con las especificaciones de su reserva</h1>
-<%= render 'bookings/form_show', booking: @booking, estate: @estate %>
-
+<%= render 'bookings/form_show', booking: @booking, estate: @estate,diff: @diff, plural_arg: @plural_arg%>

@@ -35,6 +35,10 @@ class EstatesController < ApplicationController
         },
         )) || return
     @estates = @filterrific.find.page(params[:page])
+    date_from_formatted = Date.parse(params[:from])
+    date_to_formatted = Date.parse(params[:to])
+    @diff = (date_to_formatted.to_date - date_from_formatted.to_date).to_i
+    @plural_arg = (@diff > 1)? "s":" "
     date_from = params[:from]
     date_to = params[:to]
     price_max = ((params[:price_max] != '') && (params[:price_max] != nil)) ? params[:price_max] : 1000000000 #to do
@@ -75,7 +79,16 @@ class EstatesController < ApplicationController
   end
 
   # GET /estates/1/edit
+  # room_facilities: @room_facilities, estate_facilities: estate_facilities
   def edit
+    owner = Owner.find_by_user_id(current_user.id)
+    if owner
+      @rooms = Room.where(:estate_id => params[:id])
+      @room_facilities = Facility.where(facility_type: :room)
+      @estate_facilities = Facility.where(facility_type: :estate)
+    else
+      redirect_to estates_path
+    end
   end
 
   # POST /estates
@@ -100,7 +113,7 @@ class EstatesController < ApplicationController
   def update
     respond_to do |format|
       if @estate.update(estate_params)
-        format.html { redirect_to @estate, notice: 'Propiedad actualizada exitosamente.' }
+        format.html { redirect_to show_detail_estate_path, notice: 'Propiedad actualizada exitosamente.' }
         format.json { render :show, status: :ok, location: @estate }
       else
         format.html { render :edit }
@@ -178,9 +191,7 @@ class EstatesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def estate_params
-
     params.require(:estate).permit(:name, :address, :city_id, :owner_id, :estate_type, :description,facility_ids: [], images: [], rooms_attributes: [:id, :estate_id, :description, :capacity, :quantity, :price, :status, :room_type, facility_ids: [], images:[]])
-
   end
 
   def current_ability

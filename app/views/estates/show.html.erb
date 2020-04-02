@@ -66,7 +66,7 @@
       <!-- Availability table -->
       <br/>
       <div class="col-12">
-        <%= render 'room_list', rooms: @rooms %>
+        <%= render 'room_list', rooms: @rooms, diff: @diff, plural_arg: @plural_arg%>
       </div>
     </div>
   </div>
