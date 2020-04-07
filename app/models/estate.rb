@@ -6,7 +6,8 @@ class Estate < ApplicationRecord
   has_many :facilities_estates
   has_many :facilities, through: :facilities_estates
   has_many :rooms, dependent: :destroy
-  accepts_nested_attributes_for :rooms, allow_destroy: true
+  accepts_nested_attributes_for :rooms, allow_destroy: true,
+                                reject_if: :all_blank
   belongs_to :owner
   delegate :name, :to => :city, :prefix => true
   # default for will_paginate

@@ -69,43 +69,15 @@
         fromD = $("#with_date_gte").val();
         startDate = new Date(fromD);
         startDate.setDate(startDate.getDate(new Date(fromD)));
-        $('#with_date_lte').datepicker({
-          weekStart: 1,
-          startDate: new Date(),
-          endDate: FromEndDate,
-          autoclose: true,
-          orientation: "bottom auto",
-          format: "yyyy/mm/dd",
-          language: 'es',
-          todayHighlight: true
-          }).on('changeDate', function(selected){
-              startDate = new Date(selected.date.valueOf());
-              startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
-              $('#with_date_lte').datepicker('setStartDate', startDate);
-        });
     }
     if($("#with_date_lte").val() != ''){
         toD = $("#with_date_lte").val();
         FromEndDate = new Date(toD);
         FromEndDate.setDate(FromEndDate.getDate(new Date(toD)));
-        $('#with_date_gte').datepicker({
-          weekStart: 1,
-          startDate: new Date(),
-          endDate: FromEndDate,
-          autoclose: true,
-          orientation: "bottom auto",
-          format: "yyyy/mm/dd",
-          language: 'es',
-          todayHighlight: true
-        }).on('changeDate', function(selected){
-              FromEndDate = new Date(selected.date.valueOf());
-              FromEndDate.setDate(FromEndDate.getDate(new Date(selected.date.valueOf())));
-              $('#with_date_gte').datepicker('setEndDate', FromEndDate);
-        });
     }
     $('#with_date_gte').datepicker({
           weekStart: 1,
-          startDate: new Date(),
+          startDate: startDate,
           endDate: FromEndDate,
           autoclose: true,
           orientation: "bottom auto",

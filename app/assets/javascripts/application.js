@@ -26,7 +26,7 @@
 
 
 //= require croppie/croppie
-
+//= require bootbox/bootbox.all
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -39,9 +39,31 @@
 
 const HEIGHT = 150;
 const WIDTH = 150;
+$(document).on('change', '#pictureInput', function (event) {
+    let files = event.target.files;
+
+    Array.from(files).forEach(file => {
+        let reader = new FileReader();
+        reader.onload = function (file) {
+            let img = new Image();
+            img.src = file.target.result;
+            img.classList.add("img-thumbnail");
+            img.setAttribute('alt', 'rss fit');
+            img.setAttribute('height', HEIGHT);
+            img.setAttribute('width', WIDTH);
+            $('#target').append(img);
+            $('img').css("display", "inline-block")
+        };
+        reader.readAsDataURL(file);
+    });
+
+    if (Array.from(files).length > 0) {
+        $('#target').empty();
+    }
+});
 let canvas,
     $result;
-$(document).on('change', '#pictureInput', function (event) {
+$(document).on('change', '#pictureInput1', function (event) {
     canvas  = $("#canvas");
     canvas.croppie('destroy');
     $result = $('#target');
@@ -129,6 +151,27 @@ $(document).on('change', '.picture .pictureInput2', function(event) {
 });
 
 $(document).on('click', '.remove_fields', function (e) {
+    //elimina el partial que tiene estos enlaces
+    let fieldParent = $(this).closest('fieldset'),
+        deleteField = fieldParent ? fieldParent.find('input[type="hidden"]') : null;
+    e.preventDefault();
+    bootbox.confirm({
+        title: "Eliminar Habitación?",
+        message: "Estas seguro de querer eliminarlo",
+        locale: 'es',
+        callback: function (result) {
+            if (result) {
+                if (deleteField) {
+                    deleteField.val('1');
+                    $("input").attr("required", false);
+                    fieldParent.css({display: "none"});
+                }
+            }
+        }
+    });
+});
+
+$(document).on('click', '.remove_fields2', function (e) {
     //elimina el partial que tiene estos enlaces
     $(this).closest('fieldset').detach();
     e.preventDefault()
