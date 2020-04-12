@@ -55,7 +55,11 @@
   <div class="card-body">
     <br/>
     <div class="content-heading">Habitaciones</div>
-    <%= render 'room_detail_list', rooms: @rooms %>
+    <%= render 'room_detail_list', rooms: @rooms, estate: @estate %>
   </div>
-  <%= link_to 'Volver Atras', estates_path, class: "btn btn-secondary" %>
+  <% if is_owner? && (estate.owner_id == current_owner.id) %>
+    <%= link_to 'Volver Atras', estates_path, class: "btn btn-secondary" %>
+  <%else %>
+    <%= link_to 'Volver Atras', visited_estates_path, class: "btn btn-secondary" %>
+  <%end %>
 </div>

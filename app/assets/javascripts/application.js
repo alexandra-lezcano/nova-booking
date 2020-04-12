@@ -203,3 +203,15 @@ $(document).on('click', '.add_fields', function (e) {
     $(this).before($(this).data('fields').replace(regexp, time))
     e.preventDefault()
 });
+
+$(document).on('keyup', '.validame', function (e){
+    let num = $(e.target).val();
+    num = num.replace(/[\D\s\._\-]+/g, "");
+    num = num?parseInt(num, 10):0;
+    $(e.target).val(function () {
+        let aux = (num === 0) ? "" : num;
+        return aux;
+    });
+});
+
+let message = "Debe ser un número positivo"

@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
 <div class="card col-6" >
   <article class="card-body">
-    <h2 class="card-title text-center mb-4 mt-1">Iniciar Sesion</h2>
+    <h2 class="card-title text-center mb-4 mt-1">Iniciar Sesión</h2>
     <hr>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <form>
@@ -11,7 +11,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-user"></i> </span>
             </div>
-            <%= f.text_field :login, autofocus: true, autocomplete: "login", placeholder: "Nombre de usuario o Correo electronico", class: "form-control" %>
+            <%= f.text_field :login, autofocus: true, autocomplete: "login", placeholder: "Nombre de usuario o Correo electrónico", class: "form-control" %>
           </div> <!-- input-group.// -->
         </div> <!-- form-group// -->
         <div class="form-group">

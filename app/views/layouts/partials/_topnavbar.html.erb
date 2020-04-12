@@ -35,6 +35,13 @@
               </div>
             </li>
           <%end %>
+
+          <% if user_signed_in? %>
+            <li class="nav-item active">
+              <%= link_to 'Lugares visitadas', visited_estates_path, :class => "nav-link" %>
+            </li>
+          <%end %>
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if user_signed_in? %>

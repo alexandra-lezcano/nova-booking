@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
 <div class="card col-7">
   <article class="card-body">
-    <h2 class="card-title text-center mb-4 mt-1">Reenviar Instrucciones de Confirmacion</h2>
+    <h2 class="card-title text-center mb-4 mt-1">Reenviar Instrucciones de Confirmación</h2>
     <hr>
     <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -12,7 +12,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-user"></i> </span>
             </div>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Correo", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control" %>
 
           </div> <!-- input-group.// -->
         </div> <!-- form-group// -->

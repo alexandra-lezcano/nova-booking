@@ -12,43 +12,48 @@
               <th class="text-center">Capacidad</th>
               <th class="text-center">Precio</th>
               <th class="text-center">Cantidad</th>
-              <th class="text-center">Estado</th>
+              <% if is_owner? && (estate.owner_id == current_owner.id) %>
+                <th class="text-center">Estado</th>
+              <%end %>
               <th class="text-center">Ver Más</th>
             </tr>
             </thead>
             <tbody>
             <% rooms.each do |r| %>
-              <tr>
-                <td class="text-center"><%= r.description %></td>
-                <td class="text-center"><%= r.room_type.text %></td>
-                <td class="text-center" data-toggle="tooltip" data-placement="left" title="Capacidad: <%= r.capacity %>">
-                  <% if r.capacity.to_i >= 5 %>
-                    <em class="fa-lg fas fa-users"> 5 +</em>
-                  <% else %>
-                    <% r.capacity.to_i.times do %>
-                      <em class="fa-lg fas fa-user"></em>
+                <tr>
+                  <td class="text-center"><%= r.description %></td>
+                  <td class="text-center"><%= r.room_type.text %></td>
+                  <td class="text-center" data-toggle="tooltip" data-placement="left" title="Capacidad: <%= r.capacity %>">
+                    <% if r.capacity.to_i >= 5 %>
+                      <em class="fa-lg fas fa-users"> 5 +</em>
+                    <% else %>
+                      <% r.capacity.to_i.times do %>
+                        <em class="fa-lg fas fa-user"></em>
+                      <% end %>
                     <% end %>
-                  <% end %>
-                </td>
-                <td class="text-center"><%=number_to_currency(r.price, :unit => "Gs", :separator => ".", :precision => 0) %></td>
-                <td class="text-center"><%= r.quantity %></td>
-                <td class="text-center">
-                  <% if r.status.published? %>
-                    <span class="badge badge-green float-center">
-                      <%= "Publicado" %>
-                    </span>
-                  <% else %>
-                    <span class="badge badge-warning float-center">
-                      <%= "No publicado" %>
-                    </span>
-                  <% end %>
-                </td>
-                <td class="text-center">
-                  <%= link_to room_estate_path(r.id), class: 'btn btn-link', remote: true do %>
-                    <button class="btn btn-link text-primary" title="Ver"><i class="fas fa-eye"></i></button>
-                  <% end %>
-                </td>
-              </tr>
+                  </td>
+                  <td class="text-center"><%=number_to_currency(r.price, :unit => "Gs", :separator => ".", :precision => 0) %></td>
+                  <td class="text-center"><%= r.quantity %></td>
+                  <% #byebug%>
+                  <%if is_owner? && (estate.owner_id == current_owner.id) %>
+                    <td class="text-center">
+                      <% if r.status.published? %>
+                        <span class="badge badge-green float-center">
+                          <%= "Publicado" %>
+                        </span>
+                      <% else %>
+                        <span class="badge badge-warning float-center">
+                          <%= "No publicado" %>
+                        </span>
+                      <% end %>
+                    </td>
+                  <%end %>
+                  <td class="text-center">
+                    <%= link_to room_estate_path(r.id), class: 'btn btn-link', remote: true do %>
+                      <button class="btn btn-link text-primary" title="Ver"><i class="fas fa-eye"></i></button>
+                    <% end %>
+                  </td>
+                </tr>
             <% end %>
             </tbody>
           </table>
