@@ -24,7 +24,7 @@ class OwnersController < ApplicationController
     @owner.image = { data: params[:image] }
     respond_to do |format|
       if @owner.save
-        format.html { redirect_to @owner, notice: 'Propietario fue creado satifactoriamente.' }
+        format.html { redirect_to @owner, notice: 'Tu perfil de propietario fue creado satifactoriamente.' }
         format.json { render :show, status: :created, location: @owner }
       else
         format.html { render :new }
@@ -37,7 +37,7 @@ class OwnersController < ApplicationController
     @owner.image = { data: params[:image] }
     respond_to do |format|
       if @owner.update(owner_params)
-        format.html { redirect_to @owner, notice: 'Tu perfil fue actualizado correctamente.' }
+        format.html { redirect_to @owner, notice: 'Tu perfil de propietario fue actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @owner }
       else
         format.html { render :edit }
@@ -49,7 +49,7 @@ class OwnersController < ApplicationController
   def destroy
     @owner.destroy
     respond_to do |format|
-      format.html { redirect_to owners_url, notice: 'Propietario fue eliminado satifactoriamente.' }
+      format.html { redirect_to owners_url, notice: 'Tu perfil de propietario fue eliminado satifactoriamente.' }
       format.json { head :no_content }
     end
   end
@@ -61,12 +61,7 @@ class OwnersController < ApplicationController
   end
 
   def owner_params
-    params.require(:owner).permit(:phone, :address, :about, :name,
-                                  :email, :user_id)
-  end
-
-  def current_ability
-    @current_ability ||= OwnerAbility.new(current_user)
+    params.require(:owner).permit(:phone, :address, :about, :name, :email, :user_id)
   end
 
   def current_ability
