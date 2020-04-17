@@ -67,13 +67,13 @@ class EstatesController < ApplicationController
     @facilities = @estate.facilities_estates
     @images = @estate.images
     @comments = Comment.where(estate_id: @estate.id)
-    email = get_user_email(params)
+    email, name = get_user_email_name(params)
     can_comment = User.can_comment?(email, params[:id])
     respond_to do |format|
       format.html
       format.js
     end
-    render :show, locals: {filterrific: @filterrific, city: params[:city], from: date_from, to: date_to, comments: @comments, can_comment: can_comment}
+    render :show, locals: {filterrific: @filterrific, city: params[:city], from: date_from, to: date_to, comments: @comments, can_comment: can_comment, email: email, name: name}
   end
 
   # GET /estates/new
@@ -107,6 +107,15 @@ class EstatesController < ApplicationController
       @estate_facilities = Facility.where(facility_type: :estate)
     else
       redirect_to estates_path
+    end
+  end
+
+  def remove_image
+    image = ActiveStorage::Blob.find(params[:id])
+    image.purge
+    respond_to do |format|
+      format.html { redirect_to edit_estate_path }
+      format.js { render :layout => false }
     end
   end
 
@@ -153,20 +162,21 @@ class EstatesController < ApplicationController
 
   # GET /estates/1/show_detail
   def show_detail
+    email, name = get_user_email_name(params)
     @estate = Estate.find(params[:id])
     @rooms = @estate.rooms
     comments = @estate.commentsEstate
-    render :show_detail, locals: {estate: @estate, comments: comments, can_comment: false}
+    render :show_detail, locals: {estate: @estate, comments: comments, can_comment: false, email: email, name: name}
   end
 
   # GET /estates/1/show_visited
   def show_visited
-    email = get_user_email(params)
+    email, name = get_user_email_name(params)
     @estate = Estate.with_deleted.find(params[:id])
     can_comment = @estate.deleted? ? false : User.can_comment?(email, params[:id])
     @rooms = @estate.rooms.with_deleted.where(status: 'published')
     comments = @estate.commentsEstate
-    render :show_detail, locals: {estate: @estate, comments: comments, can_comment: can_comment}
+    render :show_detail, locals: {estate: @estate, comments: comments, can_comment: can_comment, email: email, name: name}
   end
 
   def room
@@ -231,13 +241,16 @@ class EstatesController < ApplicationController
     @current_ability ||= EstateAbility.new(current_user)
   end
 
-  def get_user_email (params)
-    email = nil
+  def get_user_email_name (params)
+    email, name = nil
     if params[:confirmation_token].present?
       booking = Booking.find_by_confirmation_token(params[:confirmation_token])
       email = booking.client_email
+      name = booking.client_name
     elsif user_signed_in?
       email = current_user.email
+      name = current_user.name #no se como se llama
     end
+    return email, name
   end
 end

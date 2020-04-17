@@ -30,7 +30,7 @@ class User < ApplicationRecord
   end
 
   def self.can_comment?(user_email, estate_id)
-    cond_1 = Booking.exists?(client_email: user_email,  notified: true)
+    cond_1 = Booking.exists?(client_email: user_email,  notified: true, estate_id: estate_id)
     cond_2 = !Comment.exists?(client_email: user_email, estate_id: estate_id)
     cond_1 && cond_2
   end

@@ -4,11 +4,11 @@
   <div class="carousel-inner" role="listbox" style="height: 100%;">
 
     <div class="carousel-item active" style="height: 100%;">
-      <%= image_tag images.first, class: "d-block w-100", style: (defined?(h_size) == nil ? 'height: auto' : 'height: '+h_size.to_s)+';background-color: #ADD8E6;' %>
+      <%= image_tag url_for(images.first), class: "d-block w-100", style: (defined?(h_size) == nil ? 'height: auto' : 'height: '+h_size.to_s)+';background-color: #ADD8E6;' %>
     </div>
     <% images.drop(1).each do |image| %>
       <div class="carousel-item" style="height: 100%;">
-        <%= image_tag image, class: "d-block w-100", style: (defined?(h_size) == nil ? 'height: auto' : 'height: '+h_size.to_s)+';background-color: #ADD8E6;' %>
+        <%= image_tag url_for(image), class: "d-block w-100", style: (defined?(h_size) == nil ? 'height: auto' : 'height: '+h_size.to_s)+';background-color: #ADD8E6;' %>
       </div>
     <% end %>
 
@@ -25,7 +25,7 @@
   <ol class="carousel-indicators">
     <% images.each_with_index do |image, i| %>
       <li data-target='#carousel-thumb<%= defined?(carousel_id) ? carousel_id : '' %>' data-slide-to="<%= i %>" class="<%= i == 0 ? 'active' : '' %>">
-        <%= image_tag image, class: "d-block w-100 img-fluid", style: 'height: 30px;background-color: #ADD8E6;' %>
+        <%= image_tag url_for(image), class: "d-block w-100 img-fluid", style: 'height: 30px;background-color: #ADD8E6;' %>
       </li>
     <% end %>
   </ol>

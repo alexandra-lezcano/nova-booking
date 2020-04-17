@@ -35,4 +35,4 @@ Rails.application.config.assets.precompile += %w( errors.js )
 Rails.application.config.assets.precompile += %w( facilities.css )
 Rails.application.config.assets.precompile += %w( facilities.js )
 Rails.application.config.assets.precompile += %w( application-mailer.scss )
-
+Rails.application.config.assets.precompile += %w( bookings.js )

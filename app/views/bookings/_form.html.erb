@@ -11,7 +11,7 @@
                 <div class="form-group col-10">
                   <label>Nombre y Apellido *</label>
                   <% if user_signed_in?%>
-                    <%= form.text_field :client_name, class: "form-control", required: "required" %>
+                    <%= form.text_field :client_name, class: "form-control",value: current_user.name + " "+current_user.last_name, required: "required" %>
                   <%else %>
                     <%= form.text_field :client_name, class: "form-control", required: "required" %>
                   <%end %>
@@ -23,7 +23,7 @@
                   <% if user_signed_in?%>
                     <%= form.text_field :client_email, class: "form-control", required: "required", value: current_user.email,:readonly => true %>
                   <%else %>
-                    <%= form.text_field :client_email, class: "form-control", required: "required" %>
+                    <%= form.email_field :client_email, class: "form-control", required: "required" %>
                   <%end %>
                 </div>
               </div>
@@ -98,6 +98,7 @@
           <br/>
           <div align="right">
             <div class="col-md-4">
+              <%= form.hidden_field :estate_id %>
               <%= form.submit 'Reservar', class: "btn btn-primary" %>
             </div>
           </div>

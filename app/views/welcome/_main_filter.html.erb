@@ -1,12 +1,12 @@
 <div class="col-12 filter-block">
 
-    <!-- PRUEBA 1 TEAMCITY-->
-    <%= puts filterrific.inspect %>
-    <%= form_for_filterrific(filterrific, url: welcome_results_path, html: {id: :manual_filterrific_form}) do |f| %>
+  <!-- PRUEBA 1 TEAMCITY-->
+  <%= puts filterrific.inspect %>
+  <%= form_for_filterrific(filterrific, url: welcome_results_path, html: {id: :manual_filterrific_form}) do |f| %>
     <div class="form-group col-12">
         <div class="row has-search d-flex align-items-center">
             <span class="fas fa-globe form-control-feedback"></span>
-            <%= f.text_field :search_query, placeholder: "¿Qué ciudad búscas?", class: 'form-control' %>
+            <%= f.text_field :search_query, placeholder: "¿A dónde vas?", class: 'form-control' %>
         </div>
         <div class="row">
             <div class="col-md-5 col-sm-12 has-search d-flex align-items-center" >
@@ -14,63 +14,69 @@
                 <%= f.text_field(:with_date_gte, placeholder: "Fecha de entrada", class: 'input-sm form-control',
                            readonly: true,
                            :'id' => 'with_date_gte') %>
-            </div>
-            <div class="col-md-2 col-sm-12 d-flex align-items-center">
-                <i class="fa-3x mr-2 fa fa-arrows-alt-h align-middle"></i>
-            </div>
-            <div class="col-md-5 col-sm-12 has-search d-flex align-items-center">
-                <span class="fa fa-calendar form-control-feedback"></span>
-                <%= f.text_field(:with_date_lte, placeholder: "Fecha de salida", class: 'input-sm form-control',
-                            readonly: true,
+        </div>
+        <div class="col-md-2 col-sm-12 d-flex align-items-center">
+          <i class="fa-3x mr-2 fa fa-arrows-alt-h align-middle"></i>
+        </div>
+        <div class="col-md-5 col-sm-12 has-search d-flex align-items-center">
+          <span class="fa fa-calendar form-control-feedback"></span>
+          <%= f.text_field(:with_date_lte, placeholder: "Fecha de salida", class: 'input-sm form-control',
+                           readonly: true,
                            :'id' => 'with_date_lte') %>
-            </div>
         </div>
-        <div class="row has-search d-flex align-items-center" data-toggle="popover" data-content="Por favor selecciona una fecha">
-            <%= f.submit :Buscar, class: 'form-control btn btn-primary', :'id' => 'submit' %>
-        </div>
+      </div>
+      <div class="row has-search d-flex align-items-center" data-toggle="popover" data-content="Por favor selecciona una fecha">
+        <%= f.submit :Buscar, class: 'form-control btn btn-primary', :'id' => 'submit' %>
+      </div>
     </div>
-    <% end %>
+  <% end %>
 </div>
 <script>
-$(function() {
-    var startDate = new Date();
-    var FromEndDate = new Date();
-    var ToEndDate = new Date();
-    ToEndDate.setDate(ToEndDate.getDate()+365);
-    FromEndDate.setDate(FromEndDate.getDate()+365);
-    $('#with_date_gte').datepicker({
-          weekStart: 1,
-          startDate: new Date(),
-          endDate: FromEndDate,
-          autoclose: true,
-          orientation: "bottom auto",
-          format: "yyyy/mm/dd",
-          language: 'es',
-          todayHighlight: true
-    }).on('changeDate', function(selected){
-              startDate = new Date(selected.date.valueOf());
-              startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
-              $('#with_date_lte').datepicker('setStartDate', startDate);
+    $(function () {
+        var startDate = new Date();
+        var startDate2 = new Date();
+        startDate2.setDate(startDate.getDate() + 1);
+        var FromEndDate = new Date();
+        var ToEndDate = new Date();
+        ToEndDate.setDate(ToEndDate.getDate() + 365);
+        FromEndDate.setDate(FromEndDate.getDate() + 365);
+        $('#with_date_gte').datepicker({
+            weekStart: 1,
+            startDate: new Date(),
+            endDate: FromEndDate,
+            autoclose: true,
+            orientation: "bottom auto",
+            format: "yyyy/mm/dd",
+            language: 'es',
+            todayHighlight: true
+        }).on('changeDate', function (selected) {
+            startDate = new Date(selected.date.valueOf());
+            startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
+            let date = new Date();
+            date.setDate(startDate.getDate() + 1);
+            $('#with_date_lte').datepicker('setStartDate', date);
+        });
+        $('#with_date_lte').datepicker({
+            weekStart: 1,
+            startDate: startDate2,
+            endDate: ToEndDate,
+            autoclose: true,
+            orientation: "bottom auto",
+            format: "yyyy/mm/dd",
+            language: 'es',
+            todayHighlight: true
+        }).on('changeDate', function (selected) {
+            FromEndDate = new Date(selected.date.valueOf());
+            FromEndDate.setDate(FromEndDate.getDate(new Date(selected.date.valueOf())));
+            let date = new Date();
+            date.setDate(FromEndDate.getDate() - 1);
+            $('#with_date_gte').datepicker('setEndDate', date);
+        });
+        $('#submit').on('click', (e) => {
+            if ($('#with_date_gte').val() === '' || $('#with_date_lte').val() === '') {
+                e.preventDefault();
+                $('[data-toggle="popover"]').popover()
+            }
+        });
     });
-    $('#with_date_lte').datepicker({
-              weekStart: 1,
-              startDate: startDate,
-              endDate: ToEndDate,
-              autoclose: true,
-              orientation: "bottom auto",
-              format: "yyyy/mm/dd",
-              language: 'es',
-              todayHighlight: true
-    }).on('changeDate', function(selected){
-              FromEndDate = new Date(selected.date.valueOf());
-              FromEndDate.setDate(FromEndDate.getDate(new Date(selected.date.valueOf())));
-              $('#with_date_gte').datepicker('setEndDate', FromEndDate);
-    });
-    $('#submit').on('click', (e) => {
-        if ($('#with_date_gte').val() === '' || $('#with_date_lte').val() === '') {
-            e.preventDefault();
-            $('[data-toggle="popover"]').popover()
-        }
-    });
-});
 </script>

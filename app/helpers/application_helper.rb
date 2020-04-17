@@ -16,4 +16,15 @@ module ApplicationHelper
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
 
+  def get_score_color(range)
+    colors = %w(danger warning success)
+    case range
+    when 0..3
+      colors.first
+    when 4..8
+      colors.second
+    else
+      colors.third
+    end
+  end
 end

@@ -12,14 +12,14 @@
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-user"></i> </span>
             </div>
-            <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "Nombre de usuario", class: "form-control" %>
+            <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "Nombre de usuario", class: "form-control" ,required: "required"%>
           </div> <!-- input-group.// -->
         </div> <!-- form-group// -->
         <div class="form-group">
           <div class="input-group">
             <span class="input-group-text"> <i class="fa fa-caret-right"></i> </span>
-            <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Nombre", class: "form-control" %>
-            <%= f.text_field :last_name, autofocus: true, autocomplete: "apellido", placeholder: "Apellido", class: "form-control" %>
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Nombre", class: "form-control",required: "required" %>
+            <%= f.text_field :last_name, autofocus: true, autocomplete: "apellido", placeholder: "Apellido", class: "form-control",required: "required"%>
           </div> <!-- input-group.// -->
         </div> <!-- form-group// -->
 
@@ -28,7 +28,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
             </div>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Correo", class: "form-control" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Correo", class: "form-control",required: "required" %>
           </div> <!-- input-group.// -->
         </div> <!-- form-group// -->
 
@@ -40,7 +40,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
             </div>
-            <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Contraseña"%>
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Contraseña",required: "required"%>
           </div> <!-- input-group.// -->
         </div> <!-- form-group// -->
         <div class="form-group">
@@ -48,7 +48,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
             </div>
-            <%= f.password_field :password_confirmation, autocomplete: "current-password", class: "form-control", placeholder: "Confirmar contraseña"%>
+            <%= f.password_field :password_confirmation, autocomplete: "current-password", class: "form-control", placeholder: "Confirmar contraseña",required: "required"%>
           </div> <!-- input-group.// -->
         </div> <!-- form-group// -->
 

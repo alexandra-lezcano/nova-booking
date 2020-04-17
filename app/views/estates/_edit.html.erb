@@ -66,7 +66,7 @@
             <%= form.select :city_id,
                             options_from_collection_for_select(City.all, "id", "name", form.object.city_id),
                             {:include_blank => '- Todos -'},
-                            {:class => '', :required => 'required'}%>
+                            {:class => '', :required => 'required'} %>
           </div>
           <h5><strong>Comodidades</strong></h5>
           <div class="row scroll_facility">
@@ -99,9 +99,20 @@
             <fieldset>
               <div id="" class="field">
                 <%= form.label "Sube la foto de tu propiedad: " %>
-                <%= form.file_field :images, multiple: true, id: "pictureInput", required: "required", accept: "image/*", direct_upload: true %>
+                <%= form.file_field :images, multiple: true, id: "pictureInput", accept: "image/*" %>
               </div>
               <div id="target" class="scroll_images card d-flex flex-row justify-content-center flex-wrap">
+                <% if estate.images.attached? %>
+                  <% estate.images.each do |img| %>
+                    <div>
+                      <%= image_tag img, class: "img-thumbnail", width: 150, height: 150 %>
+                      <%= link_to remove_image_path(img.id), :remote => true, :class => "remove-image",
+                                  data: {confirm: '¿Estás seguro?'} do %>
+                        <button class="btn btn-sm btn-secondary"><i class="far fa-trash-alt"></i></button>
+                      <% end %>
+                    </div>
+                  <% end %>
+                <% end %>
               </div>
             </fieldset>
           </div>
@@ -120,8 +131,10 @@
   <div class="content-heading">Habitaciones</div>
   <div class="card card-default">
     <div class="card-body">
-      <%= form.fields_for :rooms, rooms do |f| %>
-        <%= render 'room', f: f, room_facilities: room_facilities %>
+      <% rooms.each.with_index do |room, index| %>
+        <%= form.fields_for :rooms, room do |f| %>
+          <%= render 'edit_room', f: f, room_facilities: room_facilities, id: index %>
+        <% end %>
       <% end %>
       <%= link_to_add_fields "Agregar habitacion", form, :rooms, room_facilities %>
     </div>
@@ -143,5 +156,10 @@
             input.value = input.value.split(".").join("");
         });
     });
+
+    $('.delete_image').on('ajax:success', function () {
+        $(this).closest('div').fadeOut();
+    });
+
 </script>
 

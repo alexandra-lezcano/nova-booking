@@ -20,7 +20,7 @@
 
             <%if owner.image.attached? %>
               <div class="py-4 text-center" id="target">
-                <%= image_tag owner.image, alt: "rss fit", height: "150", width:"150"%>
+                <%= image_tag url_for(owner.image), alt: "rss fit", height: "150", width:"150"%>
               </div>
             <%else %>
               <div id="target">
@@ -33,7 +33,7 @@
                 <label for="pictureInput1" class="btn btn-secondary">
                   <em class="fas fa-camera mr-2"></em> Cambiar Foto
                 </label>
-                <input type="file" class="d-none" id="pictureInput1" multiple="false" accept="image/*">
+                <%= file_field_tag "picture", multiple: false, id: "pictureInput1", required: "required", accept: "image/*", direct_upload: true %>
                 <%= hidden_field_tag 'image' ,id: 'image'%>
               </div>
             </div>

@@ -43,25 +43,23 @@
               <div class="form-group">
                 <br>
                 <br>
-                <label class="checkbox c-checkbox"> <%= f.check_box :status, {checked: (f.object.status == Room.status.published)}, Room.status.published, Room.status.not_published %><span class="fa fa-bullhorn "></span> Publicado</label>
-              </div>
+                <label class="checkbox c-checkbox"> <%= f.check_box :status, {checked: true}, "published", "not_published" %><span class="fa fa-bullhorn "></span> Publicado</label>
               </div>
             </div>
+          </div>
 
           <div class="row">
             <div class="card-body col-4">
               <div class="form-group">
                 <label title="Numero de habitaciones (de este tipo)">Cantidad *</label>
-                <%= f.text_field :quantity, class: "form-control validame", required: "required", maxlength:"3", oninvalid:"this.setCustomValidity(message)",
-                                   onchange:"this.setCustomValidity('')"%>
+                <%= f.text_field :quantity, class: "form-control", required: "required", maxlength:"3", type: "number"%>
               </div>
             </div>
 
             <div class="card-body col-4">
               <div class="form-group">
                 <label title="¿Cuántos invitados pueden quedarse en esta habitación?">Capacidad *</label>
-                <%= f.text_field :capacity, class: "form-control validame", required: "required", maxlength:"3", oninvalid:"this.setCustomValidity(message)",
-                                   onchange:"this.setCustomValidity('')"%>
+                <%= f.text_field :capacity, class: "form-control", required: "required", maxlength:"3", type: "number"%>
               </div>
             </div>
 
@@ -80,13 +78,13 @@
 
           <h5><strong>Comodidades</strong></h5>
           <div class="row scroll_facility">
-              <%= f.collection_check_boxes :facility_ids, room_facilities, :id, :description do |m| %>
+            <%= f.collection_check_boxes :facility_ids, room_facilities, :id, :description do |m| %>
               <div class="col-4">
                 <div class="form-check form-check-inline">
-                    <label class="checkbox c-checkbox c-checkbox-rounded"> <%= m.check_box %><span class="fa fa-check"></span><%= m.label %></label>
+                  <label class="checkbox c-checkbox c-checkbox-rounded"> <%= m.check_box %><span class="fa fa-check"></span><%= m.label %></label>
                 </div>
               </div>
-              <% end %>
+            <% end %>
 
           </div>
         </div>
@@ -106,10 +104,15 @@
           <div>
             <fieldset class="picture">
               <div class="field">
-                <%= f.label "Sube fotos para tu habitacion: " %>
-                <%= f.file_field :images, multiple: true, class: "pictureInput2", required: "required", accept: "image/*", direct_upload: true %>
+                <%= f.label "Agrega mas fotos a tu habitacion: " %>
+                <%= f.file_field :images, multiple: true, class: "pictureInput2", accept: "image/*" %>
               </div>
               <div class="scroll_images card d-flex flex-row justify-content-center flex-wrap">
+                <% if @rooms[id].images.attached? %>
+                  <% @rooms[id].images.each do |img| %>
+                    <%= image_tag img, class: "img-thumbnail", width: 150, height: 150 %>
+                  <% end %>
+                <% end %>
               </div>
             </fieldset>
           </div>
@@ -122,7 +125,6 @@
   </div>
 
   <div class="description card-body"></div>
-
 
   <hr style="border: 1px solid #48a7f4">
 </fieldset>

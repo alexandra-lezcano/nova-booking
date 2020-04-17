@@ -2,8 +2,10 @@
   <div class="col-2">
     <%= render(
             partial: "estates/results_filter",
-            locals: {filterrific: filterrific, comments: comments, can_comment: can_comment}
+            locals: {filterrific: filterrific}
         ) %>
+    <!--COMENTARIOS-->
+    <%= render partial: "estates/comments", :locals => { comments: comments, can_comment: can_comment, email: email, name: name} %>
   </div>
   <!-- TITLES -->
   <div class="col-10">
@@ -27,6 +29,7 @@
                 <span>
                   <%= @estate.address %>
                 </span>
+                <input id="estate-attr" type="hidden" value=<%= @estate.id %>>
               </div>
             </div>
           </div>
@@ -79,6 +82,7 @@ $(document).ready(function(){
       const total_amount = $("#total").val().split(" ")[0].split(".").join("");
       const date_start = $(".date_start").val();
       const date_end = $(".date_end").val();
+      const estate_id = $('#estate-attr').val();
       $('table > #rooms > tr').each(function () {
           const quantity = parseInt($('option:selected', this).text());
           if(quantity > 0){
@@ -89,7 +93,7 @@ $(document).ready(function(){
           }
         });
        let pr = escape(JSON.stringify(booking_details))
-       const url = "/bookings/new?date_start="+date_start+"&date_end="+date_end+"&total_amount="+total_amount.toString()
+       const url = "/bookings/new?date_start="+date_start+"&estate_id="+estate_id+"&date_end="+date_end+"&total_amount="+total_amount.toString()
                     +"&booking_details="+pr;
        window.location.href = url;
       });

@@ -1,8 +1,6 @@
-Como te has quedado en
-<br><h4><%=@estate.name%></h4>
-Estancia de <%=@diff%> noche<%=@plural_arg%>
-<br><%=@booking.date_start%>, <%=@booking.date_end%>
-<br>
-¿Cómo estuvo tu estancia en <%=@estate.name%>?
+<h4>Gracias por tu visita a <%=@estate.name%>!!</h4>
 
-dejanos tu opinión en el siguiente enlace <%=link_to "booking", root_url + "estates/" + @estate.id.to_s + "/show_visited"%>
+<br>Tu reserva fue desde <%=@booking.date_start%> al <%=@booking.date_end%> (Estancia de <%=@diff%> noche<%=@plural_arg%>)
+<br>¿Cómo estuvo tu estancia en <%=@estate.name%>?
+
+ <%=link_to "Déjanos tu opinión en este enlace", root_url + "estates/" + @estate.id.to_s + "/show_visited/?confirmation_token=" + @booking.confirmation_token%>

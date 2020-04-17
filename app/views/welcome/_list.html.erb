@@ -1,49 +1,51 @@
 <div class="container">
-    <div class="form-row">
-        <div class="col">
-            <table class="table table-bordered">
-                <% estates.each do |estate| %>
-                <tr>
-                    <td class="results-background">
-                        <div class="media align-items-center">
-                            <a class="mr-4" href="#">
-                                <%= image_tag estate.images.first, alt: "rss feed", height: 150, width: 150 %>
-                            </a>
-                            <div class="media-body d-flex">
-                                <div class="">
-                                    <h4 class="m-0" style="font-size:25px"><%= estate.name %></h4>
-                                    <small class="text-muted"><%= estate.city_name %> | Mostrar en mapa</small>
-                                    <p><%= estate.address %></p>
-                                </div>
-                                <div class="ml-auto">
-                                    <span>5.0</span>
-                                    <em class="fa-1x mr-2 fas fa-star"></em>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="media-body d-flex">
-                            <div class="btn-group ml-auto" role="group">
-                                <%= link_to estate_path(estate, :city => params["filterrific"]["search_query"], :from => params["filterrific"]["with_date_gte"], :to => params["filterrific"]["with_date_lte"], :price_max => params["filterrific"]["price_max"], :price_min => params["filterrific"]["price_min"]) do %>
-                                <button class="btn btn-sm btn-primary">Elige Habitación</button>
-                                <% end %>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <% end %>
-            </table>
-
-          <!--PRUEBA TEAMCITY 1 -->
-            <div class="card-columns-2 card-body">
-                <div class="row row-flush">
-                    <div class="col col-6 align-items-center">
-                        <%= will_paginate estates, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+  <div class="form-row">
+    <div class="col">
+      <table class="table table-bordered">
+        <% estates.each do |estate| %>
+          <tr>
+            <td class="results-background">
+              <div class="media align-items-center">
+                <a class="mr-4" href="#">
+                  <%= image_tag estate.images.first, alt: "rss feed", height: 150, width: 150 %>
+                </a>
+                <div class="media-body d-flex">
+                  <div class="">
+                    <h4 class="m-0" style="font-size:25px"><%= estate.name %></h4>
+                    <small class="text-muted"><%= estate.city_name %> | Mostrar en mapa</small>
+                    <p><%= estate.address %></p>
+                  </div>
+                  <div class="ml-auto">
+                    <div class="text-right badge badge-pill badge-<%= get_score_color(estate.score.to_i) %>">
+                      <span><%= estate.score %></span>
                     </div>
-                    <div class="col col-9">
-                        <%= page_entries_info estates, :model => 'estate', :class => 'align-middle' %>
-                    </div>
+                    <em class="fa-1x mr-2 fas fa-star"></em>
+                  </div>
                 </div>
-            </div>
+              </div>
+              <div class="media-body d-flex">
+                <div class="btn-group ml-auto" role="group">
+                  <%= link_to estate_path(estate, :city => params["filterrific"]["search_query"], :from => params["filterrific"]["with_date_gte"], :to => params["filterrific"]["with_date_lte"], :price_max => params["filterrific"]["price_max"], :price_min => params["filterrific"]["price_min"]) do %>
+                    <button class="btn btn-sm btn-primary">Elige Habitación</button>
+                  <% end %>
+                </div>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+
+      <!--PRUEBA TEAMCITY 1 -->
+      <div class="card-columns-2 card-body">
+        <div class="row row-flush">
+          <div class="col col-6 align-items-center">
+            <%= will_paginate estates, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+          </div>
+          <div class="col col-9">
+            <%= page_entries_info estates, :model => 'estate', :class => 'align-middle' %>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>

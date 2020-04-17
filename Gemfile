@@ -62,21 +62,22 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #Turbolinks
 gem 'turbolinks', '~> 5'
 
+gem 'bootstrap', '~> 4.3.1'
+gem 'bootstrap-datepicker-rails'
+gem 'cloudinary'
 gem 'data_migrate'
+gem 'devise'
 gem 'enumerize'
+gem 'filterrific'
+gem 'javascript', '~> 0.1.0'
+gem 'jquery-rails'
+gem 'jquery-validation-rails'
+gem 'listen'
+gem "mini_magick"
+gem 'sass-rails'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap4'
 
-gem 'active_storage_base64'
-gem 'bootstrap', '~> 4.3.1'
-gem 'bootstrap-datepicker-rails'
-gem 'jquery-rails'
-gem 'jquery-validation-rails'
-gem 'sass-rails'
-gem 'devise'
-gem 'filterrific'
-gem 'javascript', '~> 0.1.0'
-gem 'listen'
 
 gem "brakeman"
 gem "rails_best_practices"
@@ -84,8 +85,8 @@ gem "rubycritic"
 
 gem 'bootstrap-slider-rails'
 
-gem 'uglifier', '>= 1.3.0'
 gem 'has_secure_token'
+gem 'uglifier', '>= 1.3.0'
 
 gem 'cancancan'
 gem 'rolify'
@@ -93,7 +94,7 @@ gem 'rolify'
 
 gem 'selectize-rails'
 
-gem 'premailer-rails'
 gem 'bootstrap-email'
 gem 'paranoia'
+gem 'premailer-rails'
 

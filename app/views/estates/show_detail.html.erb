@@ -1,7 +1,7 @@
 <div class="row results-filter-section">
   <!--COMENTARIOS-->
   <div class="col-2">
-    <%= render partial: "estates/comments", :locals => { comments: comments, can_comment: can_comment} %>
+    <%= render partial: "estates/comments", :locals => { comments: comments, can_comment: can_comment, email: email, name: name} %>
   </div>
   <!-- TITLES -->
   <div class="col-10">
@@ -21,6 +21,7 @@
                 </em>
                 <span>
                   <%= @estate.address %>
+                  <input id="estate-attr" type="hidden" value=<%= @estate.id %>>
                 </span>
               </div>
             </div>
