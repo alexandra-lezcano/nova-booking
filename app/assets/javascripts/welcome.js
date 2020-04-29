@@ -1,7 +1,6 @@
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.es
-//= require jquery.easy-autocomplete
 let options_easy = {
 
     url: "/welcome/resources.json",
