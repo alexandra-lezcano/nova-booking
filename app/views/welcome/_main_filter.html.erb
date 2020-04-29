@@ -1,34 +1,28 @@
-<div class="col-12 filter-block">
-
-  <!-- PRUEBA 1 TEAMCITY-->
-  <%= puts filterrific.inspect %>
-  <%= form_for_filterrific(filterrific, url: welcome_results_path, html: {id: :manual_filterrific_form}) do |f| %>
-    <div class="form-group col-12">
-        <div class="row has-search d-flex align-items-center">
-            <span class="fas fa-globe form-control-feedback"></span>
-            <%= f.text_field :search_query, placeholder: "¿A dónde vas?", class: 'form-control' %>
-        </div>
-        <div class="row">
-            <div class="col-md-5 col-sm-12 has-search d-flex align-items-center" >
-                <span class="fa fa-calendar form-control-feedback"></span>
-                <%= f.text_field(:with_date_gte, placeholder: "Fecha de entrada", class: 'input-sm form-control',
-                           readonly: true,
-                           :'id' => 'with_date_gte') %>
-        </div>
-        <div class="col-md-2 col-sm-12 d-flex align-items-center">
-          <i class="fa-3x mr-2 fa fa-arrows-alt-h align-middle"></i>
-        </div>
-        <div class="col-md-5 col-sm-12 has-search d-flex align-items-center">
-          <span class="fa fa-calendar form-control-feedback"></span>
-          <%= f.text_field(:with_date_lte, placeholder: "Fecha de salida", class: 'input-sm form-control',
-                           readonly: true,
-                           :'id' => 'with_date_lte') %>
-        </div>
-      </div>
-      <div class="row has-search d-flex align-items-center" data-toggle="popover" data-content="Por favor selecciona una fecha">
-        <%= f.submit :Buscar, class: 'form-control btn btn-primary', :'id' => 'submit' %>
-      </div>
+<div class="col-12">
+<!-- PRUEBA 1 TEAMCITY-->
+<%= puts filterrific.inspect %>
+<%= form_for_filterrific(filterrific, url: welcome_results_path, html: {id: :manual_filterrific_form}) do |f| %>
+  <div class="form-row index-block">
+    <div class="col main-block">
+      <span class="fas fa-globe form-control-feedback"></span>
+      <%= f.text_field :search_query, placeholder: "¿A dónde vas?", class: 'form-control', id: 'with_search_home' %>
     </div>
+    <div class="col">
+      <span class="fa fa-calendar form-control-feedback"></span>
+      <%= f.text_field(:with_date_gte, placeholder: "Fecha de entrada", class: 'input-sm form-control',
+                       readonly: true,
+                       :'id' => 'with_date_gte') %>
+    </div>
+    <div class="col">
+      <span class="fa fa-calendar form-control-feedback"></span>
+      <%= f.text_field(:with_date_lte, placeholder: "Fecha de salida", class: 'input-sm form-control',
+                       readonly: true,
+                       :'id' => 'with_date_lte') %>
+    </div>
+    <div class="col search-main-block">
+      <%= f.submit :Buscar, class: 'form-control btn btn-primary', :'id' => 'submit'%>
+    </div>
+  </div>
   <% end %>
 </div>
 <script>

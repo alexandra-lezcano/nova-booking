@@ -40,4 +40,13 @@ class WelcomeController < ApplicationController
     render :results, locals: {filterrific: @filterrific}
   end
 
+  def resources
+    cities = City.all
+    estates = Estate.all
+    array_of_json = cities + estates
+    respond_to do |format|
+      format.json { render json: array_of_json.to_json( :only => [:name])  }
+    end
+  end
+
 end

@@ -4,9 +4,10 @@
     <div class="jumbotron jumbotron-fluid">
       <div class="form-group col-12">
         <div class="row has-search d-flex align-items-center results-block">
-            <%= f.text_field :search_query, placeholder: "¿A dónde vas?",
-                         :class => 'filterrific-periodically-observed form-control' %>
+            <%= f.text_field :search_query, placeholder: "¿A dónde vas?", id: 'with_search_results',
+            class: "filterrific-periodically-observed" %>
         </div>
+        
         <div class="row has-search d-flex align-items-center results-block">
           <%= f.text_field(:with_date_gte, placeholder: "Fecha de entrada", class: 'form-control datepicker',
                            readonly: true,

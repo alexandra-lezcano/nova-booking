@@ -3,102 +3,119 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 //= require bootstrap-datepicker3
 
-  .main-section-header{
-    padding-left: 80px;
-  }
+.main-section-header{
+  padding-left: 80px;
+}
 
-  .main-section-header .main-title{
-    font-size: 40px;
-    font-family: Bookman;
-    word-spacing: -5px;
-    color: #287F99;
-    font-weight: bold;
-  }
+.main-section-header .main-title{
+  font-size: 40px;
+  font-family: Bookman;
+  word-spacing: -5px;
+  color: #287F99;
+  font-weight: bold;
+}
 
-  .main-section-header .main-subtitle{
-    font-size: 15px;
-    font-family: Bookman;
-  }
+.main-section-header .main-subtitle{
+  font-size: 15px;
+  font-family: Bookman;
+}
 
-  .main-filter-section{
-    height: 300px;
-  }
+.main-filter-section .filter-block{
+  padding: 0px;
+}
 
-  .main-filter-section .filter-block{
-    padding: 0px;
-  }
-  
-  .main-filter-section .main-filter{
-    padding-left: 80px;
-    padding-right: 80px;
-  }
-  
-  .main-filter-section .has-search{
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-bottom: 2px;
-    padding-top: 2px;
-  }
-  
-  .main-filter-section .form-control{
-    padding-left: 2.375rem;
-    height: 70px;
-    border-color: #287F99;
-  }
-  
-  .main-filter-section .form-control-feedback {
-    position: absolute;
-    z-index: 100;
-    display: block;
-    width: 2.375rem;
-    height: 2.375rem;
-    line-height: 2.375rem;
-    text-align: center;
-    pointer-events: none;
-    color: #aaa;
-  }
+.main-filter-section .main-filter{
+  padding-left: 80px;
+  padding-right: 80px;
+}
 
-  #description-list{
-    list-style: none;
-    text-align: center;
-  }
+.main-filter-section .has-search{
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+}
 
-  #description-list li{
-    margin: 30px;
-    font-family: Bookman;
-  }
+.main-filter-section .form-control{
+  padding-left: 2.375rem;
+  height: 70px;
+  border-color: #287F99;
+}
 
-  #home-icon {
-    color: white;
-  }
+.main-filter-section .form-control-feedback {
+  position: absolute;
+  z-index: 100;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
 
-  #home-icon:hover {
-    color: black;
-  }
+#description-list{
+  list-style: none;
+  text-align: center;
+}
 
-  .results-block {
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-  }
+#description-list li{
+  margin: 30px;
+  font-family: Bookman;
+}
 
-  .filter-section{
-    width:280px;
-    height:100%;
-    white-space:nowrap;
-  }
+#home-icon {
+  color: white;
+}
 
-  .results-background {
-    background-color: white;
-  }
+#home-icon:hover {
+  color: black;
+}
 
-  #amount{
-    border:0;
-    font-weight:bold;
-    width:70px;
-  }
-  .score_inf{
-    color:#5d9cec;
-    border:0;
-  }
+.results-block {
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.filter-section{
+  width:280px;
+  height:100%;
+  white-space:nowrap;
+}
+
+.results-background {
+  background-color: white;
+}
+
+#amount{
+  border:0;
+  font-weight:bold;
+  width:70px;
+}
+.score_inf{
+  color:#5d9cec;
+  border:0;
+}
+
+#with_search_home{
+  width:245px;
+}
+
+#with_search_results{
+  width:205px;
+}
+
+.index-block .form-control{
+  width:230px;
+}
+
+.font-title {
+  font-family: PT Sans Narrow;
+}
+
+.hr {
+  color: blue;
+  height: 15px;
+}
