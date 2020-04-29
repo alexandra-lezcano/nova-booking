@@ -65,11 +65,9 @@ class EstatesController < ApplicationController
       quantity_available = Room.quantity_available(room.id, date_from, date_to).first
       room.quantity = quantity_available != nil ? quantity_available : 1
     end
-    estate = @estate
-    @facilities = estate.facilities_estates
-    @images = estate.images
+    @facilities = @estate.facilities_estates
+    @images = @estate.images
     @comments = Comment.where(estate_id: @estate.id)
-    @offers = estate.offers.offers_of_the_day(date_from, date_to)
     email, name = get_user_email_name(params)
     can_comment = User.can_comment?(email, params[:id])
     respond_to do |format|

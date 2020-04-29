@@ -6,13 +6,7 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.json
   def index
-    owner = helpers.current_owner
-    if owner
-      offers = Offer.offers_by_owner(owner).page(params[:page])
-    else
-      offers = []
-    end
-    render :index, locals: {offers: offers}
+    @offers = Offer.all
   end
 
   # GET /offers/1
@@ -23,16 +17,8 @@ class OffersController < ApplicationController
   # GET /offers/new
   def new
     @offer = Offer.new
-    owner = helpers.current_owner
-    estates = Estate.estates_by_owner(owner.id)
-    estate_name, offer_details = nil
-    if params[:tag_estate_id].present? then
-      estate_name = Estate.find_by(id: params[:tag_estate_id]).name
-      @offer.estate_id = params[:tag_estate_id]
-      offer_details = @offer.offer_details.build
-    end
-    render :new, locals: {offer_details: offer_details, estates: estates, estate_name: estate_name}
-
+    @offer_details = @offer.offer_details.build
+    render :new, locals: {offer_details: @offer_details}
   end
 
   # GET /offers/1/edit
@@ -46,7 +32,7 @@ class OffersController < ApplicationController
     @offer.date_creation = Time.now
     respond_to do |format|
       if @offer.save
-        format.html { redirect_to @offer, notice: 'La oferta fue creada satisfactoriamente.' }
+        format.html { redirect_to @offer, notice: 'La oferta fue creada satifactoriamente.' }
         format.json { render :show, status: :created, location: @offer }
       else
         format.html { render :new }

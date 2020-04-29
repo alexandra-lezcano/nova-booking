@@ -57,7 +57,6 @@
               </tr>
               </thead>
               <tbody>
-              <% subtotal = 0 %>
               <%= form.fields_for :booking_details, booking.booking_details do |f| %>
                 <tr>
                   <td><%=Room.room_type_for(f.object.room_id)%></td>
@@ -69,27 +68,15 @@
                   <%= f.hidden_field :quantity %>
                   <%= f.hidden_field :subtotal %>
                   <%= f.hidden_field :booking_id %>
-                  <% subtotal+= f.object.subtotal %>
                 </tr>
               <%end%>
-              <% if form.object.discount > 0 %>
-              <tr>
-                <td>Descuento</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                  <%= number_to_currency(form.object.discount/diff, :unit => "Gs", :separator => ".", :precision => 0) %>
-                </td>
-              </tr>
-              <% end %>
               <tr>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td>
-                  <b><%= number_to_currency( subtotal - form.object.discount/diff, :unit => "Gs", :separator => ".", :precision => 0) %></b>
+                  <b><%= number_to_currency( form.object.total_amount / diff, :unit => "Gs", :separator => ".", :precision => 0) %></b>
                 </td>
               </tr>
               <tr class="thead-light">
@@ -100,7 +87,6 @@
                 <th>
                   <b> <%= number_to_currency( form.object.total_amount, :unit => "Gs", :separator => ".", :precision => 0) %></b>
                   <%= form.hidden_field :total_amount %>
-                  <%= form.hidden_field :discount %>
                   <%= form.hidden_field :date_creation %>
                 </th>
               </tr>

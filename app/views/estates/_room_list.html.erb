@@ -17,6 +17,10 @@
             <tbody id="rooms">
             <% rooms.each do |r| %>
               <tr>
+                <td id="booking_info" hidden="true">
+                  <div class="room_id" hidden="true"><%=r.id%></div>
+                  <div class="price" hidden="true"><%=r.price%></div>
+                </td>
                 <td class="col-2">
                   <%= link_to r.description, room_estate_path(r.id), class: 'btn btn-link', remote: true %>
                 </td>
@@ -29,45 +33,7 @@
                     <% end %>
                   <% end %>
                 </td>
-                <% total = 0 %>
-                <% price_real = 0 %>
-                <td class="col-2 price" id="price">
-                  <%=number_to_currency(r.price, :unit => "Gs", :separator => ".", :precision => 0) %>
-                  <br>
-                  <% descriptions = [] %>
-                  <% description = '' %>
-                  <% contains = false %>
-                  <% day = Date.parse(from) %>
-                  <% day_offers= [] %>
-                  <% (1..diff).each do |n| %>
-                    <% price = r.price %>
-                    <% offers.each_with_index do |offer, i| %>
-                      <% if (offer.date_start .. offer.date_end).cover?(day) %>
-                        <% day_offers[i].nil? ? day_offers[i] = 1 : day_offers[i] += 1 %>
-                        <% offer.offer_details.each_with_index do |detail, index| %>
-                          <% if detail.room.id == r.id %>
-                            <% n == 1? descriptions.push(offer.description.to_s + " " + detail.discount.to_s + "% de descuento") : nil%>
-                            <% price -= (r.price * detail.discount) / 100 %>
-                            <% contains = true %>
-                          <% end %>
-                        <% end %>
-                      <% end %>
-                    <% end %>
-                    <% if n==1 %>
-                      <% price_real= price %>
-                    <% end %>
-                    <% total+= price %>
-                    <% day+= n %>
-                  <% end %>
-                  <% if contains %>
-                    <% day_offers.compact %>
-                    <% descriptions.each_with_index do |d, i| %>
-                      <% description+= d + ' ('+day_offers[i].to_s + (day_offers[i]>1? ' días' : ' día').to_s + ' de oferta).'+"\n" %>
-                    <% end %>
-                    <span class="badge badge-pill badge-success" data-toggle="tooltip" data-placement="left" title="<%= description %>">Oferta</span>
-                  <% end %>
-                </td>
-                <td id="price_total" hidden="true"><%=total%></td>
+                <td class="col-2 price" id="price"><%=number_to_currency(r.price, :unit => "Gs", :separator => ".", :precision => 0) %></td>
                 <td class="col-2">
                   <label>
                     <select class="custom-select custom-select-sm quantity" id="quantity" onchange="addValues()">
@@ -77,10 +43,6 @@
                       <% end %>
                     </select>
                   </label>
-                </td>
-                <td id="booking_info" hidden="true">
-                  <div class="room_id" hidden="true"><%=r.id%></div>
-                  <div class="price" hidden="true"><%=r.price%></div>
                 </td>
               </tr>
             <% end %>
@@ -93,12 +55,11 @@
     <div class="col col-lg-3">
         <div class="card card-default mb-4">
           <div class="card-body">
-            <h5><strong>Total</strong></h5>
-            <h5>Estancia de <span id="diff"><%=diff%></span> noche<%=plural_arg%></h5>
-            <label id="price_normal_label" hidden="true" for="price_normal">Precio Normal</label><input id="price_normal" class="form-control" type="text" hidden="true" disabled/>
-
-            <br id="br" hidden="true">
-            <label id="total_label" hidden="true" for="total">Precio con Oferta</label><input class="form-control" id="total" type="text" disabled/>
+            <div class="card-header">
+              <h5><strong>Total</strong></h5>
+            </div>
+            <div class="card-header"><h5>Estancia de <span id="diff"><%=diff%></span> noche<%=plural_arg%></h5></div>
+            <label for="total"></label><input class="form-control" id="total" type="text" disabled/>
           </div>
           <div class="card-footer">
             <button class="btn btn-primary" id="book">Reservar</button>
@@ -116,30 +77,13 @@
 
   function addValues() {
       let total = 0;
-      let total2 = 0;
       $('tbody tr').each(function () {
-          total2+= parseInt($('#price_total', this).text().split(".").join("")) * parseInt($('option:selected', this).text());
           let sum = parseInt($('option:selected', this).text()) * parseInt($('#price', this).text().split(".").join(""));
           total = (total + sum);
       });
       total = total  * $("#diff").text();
-      $('#total').val(total2.toLocaleString("en-US").split(",").join(".") + " Gs");
-      $('#price_normal').val(total.toLocaleString("en-US").split(",").join(".") + " Gs");
+      $('#total').val(total.toLocaleString("en-US").split(",").join(".") + " Gs");
       total === 0 ? book.prop('disabled', true) : book.prop('disabled', false);
-      if(total > total2) {
-          $('#price_normal').attr('hidden', false);
-          $('#price_normal_label').attr('hidden', false);
-          $('#total_label').attr('hidden', false);
-          $('#price_normal').css("text-decoration", "line-through");
-          $('#price_normal').css("color", "gray");
-          $('#br').attr('hidden', false);
-      }
-      else {
-          $('#br').attr('hidden', true);
-          $('#price_normal').attr('hidden', true);
-          $('#price_normal_label').attr('hidden', true);
-          $('#total_label').attr('hidden', true);
-      }
   }
 
   $(function () {

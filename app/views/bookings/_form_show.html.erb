@@ -91,7 +91,6 @@
             </tr>
             </thead>
             <tbody>
-            <% subtotal = 0 %>
             <% booking.booking_details.each do |f| %>
               <tr>
                 <td>
@@ -101,7 +100,6 @@
                 <td class="text-center"><%=f.quantity %></td>
                 <td class="text-right"><%= number_to_currency(f.subtotal / f.quantity, :unit => "Gs", :separator => ".", :precision => 0)%></td>
                 <td class="text-right"><%= number_to_currency(f.subtotal, :unit => "Gs", :separator => ".", :precision => 0) %></td>
-                <% subtotal+= f.subtotal %>
                 <td class="text-center">
                   <%= link_to room_estate_url(f.room_id), class: 'btn btn-link', remote: true do %>
                     <button class="btn btn-link text-primary" title="Ver"><i class="fas fa-eye"></i></button>
@@ -109,24 +107,13 @@
                 </td>
               </tr>
             <%end%>
-            <% if booking.discount > 0 %>
-              <tr>
-                <td>Descuento</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                  <%= number_to_currency(booking.discount/diff, :unit => "Gs", :separator => ".", :precision => 0) %>
-                </td>
-              </tr>
-            <% end %>
               <tr>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td>
-                  <b><%= number_to_currency( subtotal - booking.discount/diff, :unit => "Gs", :separator => ".", :precision => 0) %></b>
+                  <b><%= number_to_currency( booking.total_amount / diff, :unit => "Gs", :separator => ".", :precision => 0) %></b>
                 </td>
               </tr>
               <tr class="thead-light">
@@ -137,7 +124,6 @@
                 <th>
                   <b> <%= number_to_currency( booking.total_amount, :unit => "Gs", :separator => ".", :precision => 0) %></b>
                 </th>
-                <th></th>
               </tr>
             </tbody>
           </table>

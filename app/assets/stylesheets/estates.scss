@@ -21,13 +21,13 @@
 //= require @ttskch/select2-bootstrap4-theme/dist/select2-bootstrap4.css
 
 .height_div{
-  height:300px;
-}
-.scroll_images {
-  padding-top: 2px;
-  overflow-x: scroll;
-  height:130px;
-}
+    height:300px;
+  }
+  .scroll_images {
+    padding-top: 2px;
+    overflow-x: scroll;
+    height:130px;
+  }
 
 #estate-title {
   font-family: PT Sans Narrow;
@@ -170,8 +170,4 @@ input[type=file][data-direct-upload-url][disabled] {
 #map2 {
   width: 495px;
   height: 400px;
-}
-
-.tooltip-inner {
-  white-space: pre-wrap;
 }

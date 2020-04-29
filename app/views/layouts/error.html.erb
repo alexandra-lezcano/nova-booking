@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <meta name="description" content="Bootstrap Admin App + Ruby on Rails">
+   <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+   <title>NovaBooking</title>
+  <!-- =============== VENDOR STYLES ===============-->
+  <%= stylesheet_link_tag 'base' %>
+  <!-- =============== VIEW VENDOR STYLES ===============-->
+  <%= stylesheet_link_tag params[:controller] %>
+  <%= yield :vendor_css_area %>
+  <!-- =============== APP STYLES ===============-->
+  <%= stylesheet_link_tag 'application', media: 'all', id: "maincss" %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <!-- =============== VENDOR SCRIPTS ===============-->
+  <%= javascript_include_tag 'base' %>
+  <!-- =============== VIEW VENDOR SCRIPTS ===============-->
+  <%= javascript_include_tag params[:controller] %>
+  <%= yield :vendor_js_area %>
+  <!-- =============== APP SCRIPTS ===============-->
+  <%= javascript_include_tag 'application' %>
+  <!--================ PRINT =====================-->
+  <%= stylesheet_link_tag 'application', media: 'print' %>
+
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+</head>
+<body>
+  <div class="error_container">
+    <%= yield %>
+  </div>
+</body>

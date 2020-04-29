@@ -268,11 +268,6 @@ en:
         one:   propiedad
         few:   propiedades
         other: propiedades
-      offer:
-        zero:  ofertas
-        one:   oferta
-        few:   ofertas
-        other: ofertas
 
   enumerize:
     room:

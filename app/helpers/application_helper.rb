@@ -27,29 +27,4 @@ module ApplicationHelper
       colors.third
     end
   end
-  def label_score(score)
-    label = " "
-    if score > 0 && score <= 1
-      label = "Pésimo"
-    elsif score > 1 && score <= 2
-      label = "Malo"
-    elsif score > 2 && score <= 3
-      label = "Mediocre"
-    elsif score > 3 && score <= 4
-      label = "Regular"
-    elsif score > 4 && score <= 5
-      label = "Aceptable"
-    elsif score > 5 && score <= 6
-      label = "Comodo"
-    elsif score > 6 && score <= 7
-      label = "Bueno"
-    elsif score > 7 && score <= 8
-      label = "Muy Bueno"
-    elsif score > 8 && score <= 9
-      label = "Excelente"
-    elsif score > 9 && score <= 10
-      label = "Excepcional "
-      return label
-    end
-  end
 end

@@ -11,16 +11,16 @@
     </div>
   <% end %>
 
+  <div class="content-heading">Oferta</div>
   <div align="center">
-    <div class="card card-default col-10">
+    <div class="card card-default col-7">
       <div class="card-body">
         <div class="row" align="left">
           <div class="col-md-8">
             <div class="card-body">
               <div class="form-group col-10">
-                <label>Propiedad</label>
-                <input type="text" class="form-control valid" value="<%= estate_name %>" disabled>
-                <%= form.hidden_field :estate_id %>
+                <label>Propiedad *</label>
+                <%= form.text_field :estate_id, class: "form-control", required: "required" %>
               </div>
             </div>
             <div class="card-body">
@@ -40,7 +40,7 @@
             <div class="card-body">
               <div class="form-group">
                 <label>Hasta </label>
-                <%= form.date_field :date_end, min: Date.today, class: "form-control", required: "required" %>
+                <%= form.date_field :date_end, min: Date.today, class: "form-control", required: "required"%>
               </div>
             </div>
           </div>
@@ -50,11 +50,11 @@
   </div>
 
   <div align="center">
-    <div class="col-10">
+    <div class="col-7">
       <fieldset>
         <div class="form-group row">
-          <%#= link_to 'Atras', estates_path, class: "btn btn-secondary" %>
-          <%= form.submit 'Guardar', class: "btn btn-primary" %>
+            <%#= link_to 'Atras', estates_path, class: "btn btn-secondary" %>
+            <%= form.submit 'Guardar', class: "btn btn-primary" %>
         </div>
       </fieldset>
     </div>

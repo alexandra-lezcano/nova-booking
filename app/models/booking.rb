@@ -11,7 +11,6 @@ class Booking < ApplicationRecord
         booking.date_start = params[:date_start]
         booking.date_end = params[:date_end]
         booking.total_amount = params[:total_amount]
-        booking.discount = params[:discount]
         booking.booking_state = true
         booking_details = JSON.parse(CGI.unescape(params[:booking_details]))
         booking_details.each {|value|
