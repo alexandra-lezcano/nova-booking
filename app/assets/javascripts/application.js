@@ -22,8 +22,7 @@
 //= require activestorage
 //-- Selectize
 //= require selectize
-//= require jquery.easy-autocomplete
-//= require welcome
+
 
 //= require croppie/croppie
 //= require bootbox/bootbox.all
