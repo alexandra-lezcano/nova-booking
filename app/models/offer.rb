@@ -10,9 +10,4 @@ class Offer < ApplicationRecord
   scope :offers_by_owner, -> (current_owner_id) {
     joins(:estate).where('estates.owner_id = ?',current_owner_id)
   }
-
-  def is_available_for?(date_start, date_end)
-    (self.date_start..self.date_end).cover?(date_start) or
-        (self.date_start..self.date_end).cover?(date_end)
-  end
 end
