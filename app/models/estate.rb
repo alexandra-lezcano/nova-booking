@@ -158,12 +158,5 @@ class Estate < ApplicationRecord
     self.comments_quant += 1
   end
 
-  # solo da la primera reserva disponible en fecha
-  def available_offer_for(date_start, date_end)
-    offers = []
-    self.offers.each { |offer| offers.push(offer) if offer.is_available_for?(date_start, date_end)}
-    offers
-  end
-
   resourcify
 end

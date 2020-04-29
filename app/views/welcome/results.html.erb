@@ -9,7 +9,7 @@
     <div class="col" id="results">
         <%= render(
                 partial: 'welcome/list',
-                locals: {estates: @estates, start_date: filterrific.with_date_gte, end_date: filterrific.with_date_lte}
+                locals: {estates: @estates}
             ) %>
     </div>
   </div>

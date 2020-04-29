@@ -16,9 +16,4 @@ class Offer < ApplicationRecord
           ((offers.date_end >= ?) and (offers.date_start <= ?))',
           to, to, from, from)
   }
-
-  def is_available_for?(date_start, date_end)
-    (self.date_start..self.date_end).cover?(date_start) or
-        (self.date_start..self.date_end).cover?(date_end)
-  end
 end
